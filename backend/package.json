@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "server": "node server/index.js",
-    "dev:server": "nodemon server/index.js"
+    "start": "node index.js", 
+    "server": "node index.js",
+    "dev:server": "nodemon index.js"
   },
   "dependencies": {
     "axios": "^1.6.7",

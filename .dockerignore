@@ -1,0 +1,20 @@
+# Ignore node_modules (you will install them in the container)
+node_modules
+
+# Ignore logs and debug files
+*.log
+*.debug
+
+# Ignore the frontend build (since you build it separately)
+frontend/build/
+
+# Ignore environment files (like .env for security reasons)
+.env
+
+# Ignore the Dockerfile and .dockerignore itself (if they’re in the project folder)
+Dockerfile
+.dockerignore
+
+# Ignore any IDE-specific files (e.g., VS Code, JetBrains)
+.vscode/
+.idea/

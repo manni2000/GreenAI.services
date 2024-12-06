@@ -75,6 +75,17 @@ const industries = [
     ],
     path: "/mining",
   },
+  {
+    id: 7,
+    name: "SurfaceAnalyzer",
+    image: Mining,
+    description: [
+      "Purpose-Built for Fabrics",
+      "High-Resolution Inspection",
+      "AI-Driven Detection",
+    ],
+    path: "/Surface-Analyzer",
+  },
 ];
 
 const IndustryList = () => {

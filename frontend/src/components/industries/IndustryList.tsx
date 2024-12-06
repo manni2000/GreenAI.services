@@ -75,6 +75,17 @@ const industries = [
     ],
     path: "/mining",
   },
+  {
+    id: 7,
+    name: "SurfaceAnalyzer",
+    image: Mining,
+    description: [
+      "Purpose-Built for Fabrics",
+      "High-Resolution Inspection",
+      "AI-Driven Detection",
+    ],
+    path: "/Surface-Analyzer",
+  },
 ];
 
 const IndustryList = () => {
@@ -119,20 +130,20 @@ const IndustryList = () => {
               alt={selectedIndustry.name}
               className="w-full h-48 object-cover"
             />
-            <div className="p-6">
-              <h3 className="text-4xl font-bold mb-4">
+            <div className="p-7">
+              <h3 className="text-5xl font-bold mb-9">
                 {selectedIndustry.name}
               </h3>
               <ul className="space-y-2">
                 {selectedIndustry.description.map((item, index) => (
                   <li key={index} className="flex items-center gap-2">
-                    <ArrowRight className="w-4 h-4 text-green-500" />
+                    <ArrowRight className="w-5 h-5 text-green-500" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
               <button
-                className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors"
+                className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors text-lg font-bold"
                 onClick={() => navigate(selectedIndustry.path)}
               >
                 Read More

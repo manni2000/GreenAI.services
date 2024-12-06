@@ -5,8 +5,12 @@ import { connectDB } from './config/database.js';
 import { errorHandler, notFound } from './middleware/error.middleware.js';
 import authRoutes from './routes/auth.routes.js';
 import { logger } from './utils/logger.js';
+import mongoose from 'mongoose';  // Import mongoose for database setup
 
 const app = express();
+
+// Set Mongoose options
+mongoose.set('strictQuery', true);  // Ensures strict query behavior with Mongoose
 
 // Middleware
 app.use(cors());
@@ -16,20 +20,14 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 
 // Error Handling
-app.use(notFound);
-app.use(errorHandler);
+app.use(notFound);  // Handle 404 Not Found
+app.use(errorHandler);  // Handle errors
 
-// Start server
-const startServer = async () => {
-  try {
-    await connectDB();
-    app.listen(config.port, () => {
-      logger.info(`Server running on port ${config.port}`);
-    });
-  } catch (error) {
-    logger.error(`Error starting server: ${error.message}`);
-    process.exit(1);
-  }
-};
+// Connect to Database
+connectDB();  // Assuming connectDB is set up in './config/database.js'
 
-startServer();
+// Start Server
+const PORT = config.PORT || 5000;
+app.listen(PORT, () => {
+  logger.info(`Server running in ${config.NODE_ENV} mode on port ${PORT}`);
+});

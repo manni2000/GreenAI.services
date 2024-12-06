@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # Define the start command
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]

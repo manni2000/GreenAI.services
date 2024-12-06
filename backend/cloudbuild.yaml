@@ -1,0 +1,25 @@
+steps:
+  # Step 1: Build the Docker image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/my-backend", "."]
+
+  # Step 2: Push the Docker image to Google Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/my-backend"]
+
+  # Step 3: Deploy to Google Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      - "run"
+      - "deploy"
+      - "my-backend"
+      - "--image"
+      - "gcr.io/$PROJECT_ID/my-backend"
+      - "--platform"
+      - "managed"
+      - "--region"
+      - "us-central1" # Set the region for Cloud Run
+      - "--allow-unauthenticated" # Allow public access if necessary
+
+# Optional: Add other steps as needed for your environment, e.g., setting up environment variables, etc.

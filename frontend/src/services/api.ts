@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://greenaiservices-749788198781.asia-south1.run.app/api';
 
 const api = axios.create({
   baseURL: API_URL,

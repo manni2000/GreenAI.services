@@ -25,9 +25,7 @@ const SurfaceAnalyzerPage = () => {
               </h2>
             </div>
             <div className="space-y-4 text-gray-700">
-              <p>
-                Purpose-built for fabrics.
-              </p>
+              <p>Purpose-built for fabrics.</p>
               <p>High-resolution inspection</p>
               <p>AI-driven detection</p>
               <p>Customizable analysis</p>
@@ -46,7 +44,8 @@ const SurfaceAnalyzerPage = () => {
                 Purpose-Built for Fabrics
               </h3>
               <p className="text-gray-700">
-                Tailored specifically to detect surface defects in textiles, such as tears, stains, and irregular patterns.
+                Tailored specifically to detect surface defects in textiles,
+                such as tears, stains, and irregular patterns.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
@@ -54,7 +53,8 @@ const SurfaceAnalyzerPage = () => {
                 High-Resolution Inspection
               </h3>
               <p className="text-gray-700">
-                Utilizes a 20MP Arducam USB camera module for precise imaging, ensuring even the smallest imperfections are identified.
+                Utilizes a 20MP Arducam USB camera module for precise imaging,
+                ensuring even the smallest imperfections are identified.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
@@ -62,7 +62,9 @@ const SurfaceAnalyzerPage = () => {
                 AI-Driven Detection
               </h3>
               <p className="text-gray-700">
-                Employs advanced image processing and machine learning algorithms to identify flaws that may be missed by the human eye.
+                Employs advanced image processing and machine learning
+                algorithms to identify flaws that may be missed by the human
+                eye.
               </p>
             </div>
           </div>

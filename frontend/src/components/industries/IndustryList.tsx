@@ -7,6 +7,7 @@ import Automobile from "../img/automobile.png";
 import Power from "../img/power.jpg";
 import Transportation from "../img/infrastructure.webp";
 import Mining from "../img/mining.jpeg";
+import SurfaceAnalyzer from "../img/SurfaceAnalyzer.webp";
 
 const industries = [
   {
@@ -78,7 +79,7 @@ const industries = [
   {
     id: 7,
     name: "SurfaceAnalyzer",
-    image: Mining,
+    image: SurfaceAnalyzer,
     description: [
       "Purpose-Built for Fabrics",
       "High-Resolution Inspection",

@@ -16,7 +16,7 @@ export const protect = catchAsync(async (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, config.jwtSecret);
+    const decoded = jwt.verify(token, config.JWT_SECRET);
     req.user = await User.findById(decoded.id);
     next();
   } catch (error) {

@@ -5,8 +5,8 @@ import { AppError } from '../utils/appError.js';
 
 export class AuthService {
   static generateToken(userId) {
-    return jwt.sign({ id: userId }, config.jwtSecret, {
-      expiresIn: config.jwtExpiresIn
+    return jwt.sign({ id: userId }, config.JWT_SECRET, {
+      expiresIn: config.JWT_EXPIRES_IN,
     });
   }
 

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const services = [
@@ -54,11 +54,68 @@ const services = [
 ];
 
 const Services = () => {
-  const [selectedService, setSelectedService] = useState(services[0]);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const servicesRef = useRef<HTMLDivElement>(null);
+
+  // Initialize selectedService from location state or default to first service
+  const [selectedService, setSelectedService] = useState(() => {
+    const locationState = location.state as {
+      selectedServiceId?: number;
+      scrollPosition?: number;
+    } | null;
+    const initialServiceId = locationState?.selectedServiceId;
+    return (
+      services.find((service) => service.id === initialServiceId) || services[0]
+    );
+  });
+
+  // Restore scroll position when coming back to the page
+  useEffect(() => {
+    const locationState = location.state as {
+      selectedServiceId?: number;
+      scrollPosition?: number;
+    } | null;
+
+    // If we have a saved scroll position, scroll to it
+    if (locationState?.scrollPosition && servicesRef.current) {
+      window.scrollTo({
+        top: locationState.scrollPosition,
+        behavior: "instant",
+      });
+    }
+  }, [location.state]);
+
+  const handleServiceNavigation = (
+    link: string,
+    service: (typeof services)[0]
+  ) => {
+    // Ensure we have a reference to the services section
+    if (servicesRef.current) {
+      // Calculate the scroll position relative to the services section
+      const sectionTop =
+        servicesRef.current.getBoundingClientRect().top + window.scrollY;
+
+      // Navigate with state to remember selected service and scroll position
+      navigate(link, {
+        state: {
+          selectedServiceId: service.id,
+          scrollPosition: sectionTop,
+        },
+      });
+    }
+
+    // Smooth scroll to top of the section
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section
       id="services"
+      ref={servicesRef}
       className="py-20 bg-gradient-to-r from-gray-900 to-gray-800"
     >
       <div className="container mx-auto px-4">
@@ -86,18 +143,20 @@ const Services = () => {
             >
               <div className="flex flex-col justify-between h-full">
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                  <h3 className="text-4xl font-bold text-white mb-4">
                     {service.name}
                   </h3>
                   <p className="text-gray-300 mb-4">{service.description}</p>
                 </div>
                 <div className="flex justify-center mt-4">
-                  <Link
-                    to={service.link}
+                  <button
+                    onClick={() =>
+                      handleServiceNavigation(service.link, service)
+                    }
                     className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition-colors"
                   >
                     {service.icon}
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>

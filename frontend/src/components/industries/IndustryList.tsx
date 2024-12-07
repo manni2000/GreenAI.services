@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import infrastructure from "../img/infrastructure.webp";
 import Steel from "../img/steel.jpg";
@@ -90,8 +90,54 @@ const industries = [
 ];
 
 const IndustryList = () => {
-  const [selectedIndustry, setSelectedIndustry] = useState(industries[0]);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  // Initialize selected industry from location state or default to first industry
+  const [selectedIndustry, setSelectedIndustry] = useState(() => {
+    // Check if we have a saved industry from navigation state
+    const locationState = location.state as {
+      selectedIndustryId?: number;
+    } | null;
+    const initialIndustryId = locationState?.selectedIndustryId;
+    return (
+      industries.find((ind) => ind.id === initialIndustryId) || industries[0]
+    );
+  });
+
+  // Restore scroll position and selected industry when returning to the page
+  useEffect(() => {
+    const locationState = location.state as {
+      scrollPosition?: number;
+      selectedIndustryId?: number;
+    } | null;
+
+    // Scroll to saved position if exists
+    if (locationState?.scrollPosition) {
+      window.scrollTo({
+        top: locationState.scrollPosition,
+        behavior: "instant",
+      });
+    }
+  }, [location.state]);
+
+  const handleReadMore = () => {
+    // Smooth scroll to top before navigation
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    // Navigate with state to remember selected industry and scroll position
+    if (selectedIndustry) {
+      navigate(selectedIndustry.path, {
+        state: {
+          selectedIndustryId: selectedIndustry.id,
+          scrollPosition: window.scrollY,
+        },
+      });
+    }
+  };
 
   return (
     <section id="industries" className="py-20 bg-gray-100">
@@ -125,32 +171,34 @@ const IndustryList = () => {
             ))}
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
-            <img
-              src={selectedIndustry.image}
-              alt={selectedIndustry.name}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-7">
-              <h3 className="text-5xl font-bold mb-9">
-                {selectedIndustry.name}
-              </h3>
-              <ul className="space-y-2">
-                {selectedIndustry.description.map((item, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <ArrowRight className="w-5 h-5 text-green-500" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button
-                className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors text-lg font-bold"
-                onClick={() => navigate(selectedIndustry.path)}
-              >
-                Read More
-              </button>
+          {selectedIndustry && (
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
+              <img
+                src={selectedIndustry.image}
+                alt={selectedIndustry.name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-7">
+                <h3 className="text-4xl font-bold mb-9">
+                  {selectedIndustry.name}
+                </h3>
+                <ul className="space-y-2">
+                  {selectedIndustry.description.map((item, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <ArrowRight className="w-5 h-5 text-green-500" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors text-lg font-bold"
+                  onClick={handleReadMore}
+                >
+                  Read More
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

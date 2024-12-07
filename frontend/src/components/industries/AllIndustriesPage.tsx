@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import infrastructure from "../img/infrastructure.webp";
 import Steel from "../img/steel.jpg";
@@ -89,13 +89,42 @@ const industries = [
   },
 ];
 
-const IndustryList = () => {
-  const [selectedIndustry, setSelectedIndustry] = useState(industries[0]);
+const AllIndustriesPage = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+
+  // Initialize selected industry from location state or default to first industry
+  const [selectedIndustry, setSelectedIndustry] = useState(() => {
+    // Check if we have a saved industry from navigation state
+    const locationState = location.state || {};
+    return locationState.selectedIndustryId
+      ? industries.find((ind) => ind.id === locationState.selectedIndustryId)
+      : industries[0];
+  });
+
+  // Restore scroll position if we have a saved position in location state
+  useEffect(() => {
+    const locationState = location.state || {};
+    if (locationState.scrollPosition) {
+      window.scrollTo(0, locationState.scrollPosition);
+    }
+  }, [location.state]);
+
+  const handleReadMore = () => {
+    // Save current scroll position and selected industry ID when navigating
+    if (selectedIndustry) {
+      navigate(selectedIndustry.path, {
+        state: {
+          scrollPosition: window.scrollY,
+          selectedIndustryId: selectedIndustry.id,
+        },
+      });
+    }
+  };
 
   return (
     <section id="industries" className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4 mt-12">
+      <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             OUR INDUSTRIES
@@ -125,36 +154,38 @@ const IndustryList = () => {
             ))}
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
-            <img
-              src={selectedIndustry.image}
-              alt={selectedIndustry.name}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-4xl font-bold mb-4">
-                {selectedIndustry.name}
-              </h3>
-              <ul className="space-y-2">
-                {selectedIndustry.description.map((item, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <ArrowRight className="w-4 h-4 text-green-500" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button
-                className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors"
-                onClick={() => navigate(selectedIndustry.path)}
-              >
-                Read More
-              </button>
+          {selectedIndustry && (
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
+              <img
+                src={selectedIndustry.image}
+                alt={selectedIndustry.name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-7">
+                <h3 className="text-4xl font-bold mb-9">
+                  {selectedIndustry.name}
+                </h3>
+                <ul className="space-y-2">
+                  {selectedIndustry.description.map((item, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <ArrowRight className="w-5 h-5 text-green-500" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors text-lg font-bold"
+                  onClick={handleReadMore}
+                >
+                  Read More
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
   );
 };
 
-export default IndustryList;
+export default AllIndustriesPage;

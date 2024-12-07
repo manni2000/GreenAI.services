@@ -1,10 +1,7 @@
 import axios from 'axios';
 
-<<<<<<< HEAD
-const API_URL = 'http://localhost:5000/api';
-=======
+
 const API_URL = 'https://greenai-services-backen.onrender.com/api';
->>>>>>> 4a71599686b0b33709b5cf545a07b8a9aeee4742
 
 const api = axios.create({
   baseURL: API_URL,

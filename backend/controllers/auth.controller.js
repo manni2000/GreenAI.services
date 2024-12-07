@@ -1,6 +1,7 @@
 import { AuthService } from '../services/auth.service.js';
-import { catchAsync } from '../utils/catchAsync.js';
+import catchAsync  from '../utils/catchAsync.js';
 import { AppError } from '../utils/appError.js';
+import bcrypt from 'bcryptjs';
 
 export const signup = catchAsync(async (req, res) => {
   const { name, email, password } = req.body;
@@ -23,6 +24,7 @@ export const signup = catchAsync(async (req, res) => {
 
 export const login = catchAsync(async (req, res) => {
   const { email, password } = req.body;
+
 
   if (!email || !password) {
     throw new AppError('Please provide email and password', 400);

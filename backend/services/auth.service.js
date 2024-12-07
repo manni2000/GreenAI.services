@@ -19,10 +19,19 @@ export class AuthService {
   }
 
   static async validateUser(email, password) {
-    const user = await User.findOne({ email }).select('+password');
-    if (!user || !(await user.comparePassword(password))) {
-      throw new AppError('Invalid credentials', 401);
+    const user = await User.findOne({ email }).select('password');
+    if (!user) {
+      console.error(`[ERROR] User not found for email: ${email}`);
+      throw new AppError('Invalid credentialsA', 401);
     }
+  
+    const isPasswordValid = await user.comparePassword(password);
+    
+    if (!isPasswordValid) {
+      console.error(`[ERROR] Invalid password for email: ${email}`);
+      throw new AppError('Invalid credentialsB', 401);
+    }
+  
     return user;
   }
 }

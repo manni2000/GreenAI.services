@@ -21,6 +21,7 @@ import EducationalInnovationsPage from "./components/services/EducationalInnovat
 import CustomerExperiencePage from "./components/services/CustomerExperiencePage";
 import RoboticAutomationPage from "./components/services/RoboticAutomationPage";
 import CarbonFootprintPage from "./components/services/CarbonFootprintPage";
+import SurfaceAnalyzerPage from "./components/industries/SurfaceAnalyzerPage";
 import Auth from "../src/pages/Auth";
 import AllServicesPage from "./components/services/AllServicesPage";
 import AllIndustriesPage from "./components/industries/AllIndustriesPage";
@@ -90,6 +91,10 @@ function App() {
             <Route
               path="/robotic-automation"
               element={<RoboticAutomationPage />}
+            />
+            <Route
+              path="/Surface-Analyzer"
+              element={<SurfaceAnalyzerPage />}
             />
             <Route path="/carbon-footprint" element={<CarbonFootprintPage />} />
             <Route path="/signin" element={<Auth setUser={setUser} />} />

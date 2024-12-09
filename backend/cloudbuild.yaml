@@ -1,0 +1,20 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/greenai-443912/mern-backend", "."]
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - "run"
+      - "deploy"
+      - "mern-backend"
+      - "--image"
+      - "gcr.io/greenai-443912/mern-backend"
+      - "--region"
+      - "us-central1"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated"
+    env:
+      - "GOOGLE_APPLICATION_CREDENTIALS=/workspace/credentials.json"
+
+images:
+  - "gcr.io/greenai-443912/mern-backend"

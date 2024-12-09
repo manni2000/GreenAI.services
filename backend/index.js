@@ -5,7 +5,7 @@ import { connectDB } from './config/database.js';
 import { errorHandler, notFound } from './middleware/error.middleware.js';
 import authRoutes from './routes/auth.routes.js';
 import { logger } from './utils/logger.js';
-import mongoose from 'mongoose';  // Import mongoose for database setup
+import mongoose from 'mongoose';  
 
 const app = express();
 

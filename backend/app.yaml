@@ -2,6 +2,10 @@ runtime: nodejs16
 
 env_variables:
 MONGODB_URI: "mongodb+srv://Greenaiservices:Greenaiservices123@greenaiservice.wnvrtaa.mongodb.net/greenai"
+PORT: 5000
+JWT_SECRET: "yourrandomsecret"
+JWT_EXPIRES_IN: "90d"
+NODE_ENV: "development"
 
 automatic_scaling:
   min_instances: 1

@@ -2,7 +2,7 @@
 FROM node:18 AS build
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /frontend
 
 # Copy package.json and package-lock.json (or yarn.lock) for dependency installation
 COPY package*.json ./

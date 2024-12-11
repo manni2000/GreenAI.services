@@ -1,32 +1,26 @@
-# Step 1: Build the React app
-FROM node:18 AS build
+# Use an official Node runtime as the base image
+FROM node:18-alpine
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /frontend
 
-# Copy package.json and package-lock.json (or yarn.lock) to install dependencies
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application files
+# Copy the rest of the application code
 COPY . .
 
-# Build the React app for production
+# Build the application
 RUN npm run build
 
-# Step 2: Serve the app with a lightweight HTTP server (e.g., "serve")
-FROM node:18-slim
-
-# Install 'serve' globally to serve the built static files
+# Install a simple server for serving static content
 RUN npm install -g serve
 
-# Set the working directory to where the build artifacts are located
-WORKDIR /frontend
+# Expose the port the app runs on
+EXPOSE 5000
 
-# Copy the build files from the previous stage
-COPY --from=build /frontend/build /app
-
-# Start the app using serve
+# Command to run the application
 CMD ["serve", "-s", "build", "-l", "5000"]

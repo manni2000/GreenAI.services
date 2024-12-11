@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const API_URL = process.env.NODE_ENV === 'development' ?
     'http://localhost:5000/api' :
-    'https://backend-749788198781.asia-south1.run.app/api';
+    'https://greenai-services-backen.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_URL,

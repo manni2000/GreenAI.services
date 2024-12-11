@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import { useNavigate } from "react-router-dom";
 import homeImage from "../img/cover.webp";
 
 const words = ["RELIABLE", "SEAMLESS", "SIMPLE", "ACCESSIBLE", "SCALABLE"];
 
 const Hero = () => {
-  const navigate = useNavigate(); // Initialize navigation hook
+  const navigate = useNavigate();
 
   useEffect(() => {
     const flipWord = document.querySelector(".flip-word");
@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   const handleRedirectToSignup = () => {
-    navigate("/signup"); // Redirect to the signup page
+    navigate("/signup");
   };
 
   return (
@@ -84,7 +84,7 @@ const Hero = () => {
 
           <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl">
             Reimagine your potential with Green AI. We craft cutting-edge AI
-            solutions that don't just simplify innovation—they redefine it.
+            solutions that don't just simplify innovation they redefine it.
             Elevate efficiency, spark growth, and uncover opportunities you
             didn't know existed.
           </p>

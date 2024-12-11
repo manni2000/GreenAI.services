@@ -21,11 +21,11 @@ const SignInForm: React.FC<SignInFormProps> = ({ setUser }) => {
 
     try {
       const response = await login(email, password);
-      // Store token in localStorage
+
       localStorage.setItem("token", response.token);
-      // Set user state
+
       setUser({ name: response.name });
-      // Redirect to account management page
+
       navigate("/");
     } catch (err: any) {
       setError(err.response?.data?.message || "An error occurred");

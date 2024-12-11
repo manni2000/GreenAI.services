@@ -22,11 +22,11 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ setUser }) => {
 
     try {
       const response = await signup(name, email, password);
-      // Store token in localStorage
+
       localStorage.setItem("token", response.token);
-      // Set user state
+
       setUser({ name: response.name });
-      // Redirect to account management page
+
       navigate("/");
     } catch (err: any) {
       setError(err.response?.data?.message || "An error occurred");
@@ -111,7 +111,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ setUser }) => {
         disabled={loading}
         className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {loading ? "Signing up..." : "Sign up"}
+        {loading ? "Creating account..." : "Sign up"}
         <ArrowRight className="ml-2 h-5 w-5" />
       </button>
     </form>

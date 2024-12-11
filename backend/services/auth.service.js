@@ -12,29 +12,49 @@ export class AuthService {
   }
 
   static async createUser(userData) {
-    const existingUser = await User.findOne({ email: userData.email });
-    if (existingUser) {
-      throw new AppError('Email already in use', 400);
+    try {
+      const existingUser = await User.findOne({ email: userData.email });
+      if (existingUser) {
+        const errorMessage = `Email already in use: ${userData.email}`;
+        console.error(`[ERROR] Registration failed: ${errorMessage}`);
+        throw new AppError(errorMessage, 400);
+      }
+
+      const hashedPassword = await bcrypt.hash(userData.password, 10);
+      const newUser = await User.create({ ...userData, password: hashedPassword });
+
+      console.info(`[INFO] User created successfully with email: ${newUser.email}`);
+      return newUser;
+    } catch (error) {
+      console.error(`[ERROR] Failed to create user: ${error.message}`);
+      throw error;
     }
-    const hashedPassword = await bcrypt.hash(userData.password, 10);
-    const newUser = await User.create({ ...userData, password: hashedPassword });
-    return newUser;
   }
 
   static async validateUser(email, password) {
-    const user = await User.findOne({ email }).select('+password');
-    if (!user) {
-      console.error(`[ERROR] User not found for email: ${email}`);
-      throw new AppError('Invalid credentialsA', 401);
+    try {
+      const user = await User.findOne({ email }).select('+password');
+      if (!user) {
+        const warningMessage = `User not found for email: ${email}`;
+        console.warn(`[WARN] Authentication failed: ${warningMessage}`);
+        throw new AppError('Invalid credentials', 401); 
+      }
+
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      
+      if (!isPasswordValid) {
+        const warningMessage = `Invalid password for email: ${email}`;
+        console.warn(`[WARN] Authentication failed: ${warningMessage}`);
+        throw new AppError('Invalid credentials', 401); 
+      }
+
+      console.info(`[INFO] User validated successfully: ${email}`);
+      return user;
+    } catch (error) {
+      if (!(error instanceof AppError)) {
+        console.error(`[ERROR] Unexpected error during user validation: ${error.message}`);
+      }
+      throw error;
     }
-
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-
-    if (!isPasswordValid) {
-      console.error(`[ERROR] Invalid password for email: ${email}`);
-      throw new AppError('Invalid credentialsB', 401);
-    }
-
-    return user;
   }
 }

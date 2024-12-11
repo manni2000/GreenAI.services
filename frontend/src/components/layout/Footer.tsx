@@ -189,10 +189,7 @@ const Footer = () => {
           <p className="text-gray-400">
             &copy; 2024 GreenAI. All rights reserved.
           </p>
-          <Link
-            to="/privacy-policy"
-            className="text-gray-400 hover:text-green-400"
-          >
+          <Link to="#" className="text-gray-400 hover:text-green-400">
             Privacy Policy
           </Link>
         </div>

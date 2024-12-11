@@ -1,20 +1,29 @@
 import React, { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 import homeImage from "../img/cover.webp";
 
 const words = ["RELIABLE", "SEAMLESS", "SIMPLE", "ACCESSIBLE", "SCALABLE"];
 
 const Hero = () => {
+  const navigate = useNavigate(); // Initialize navigation hook
+
   useEffect(() => {
     const flipWord = document.querySelector(".flip-word");
     let index = 0;
-    setInterval(() => {
+    const interval = setInterval(() => {
       if (flipWord) {
         flipWord.textContent = words[index];
       }
       index = (index + 1) % words.length;
     }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
+
+  const handleRedirectToSignup = () => {
+    navigate("/signup"); // Redirect to the signup page
+  };
 
   return (
     <div
@@ -75,7 +84,7 @@ const Hero = () => {
 
           <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl">
             Reimagine your potential with Green AI. We craft cutting-edge AI
-            solutions that don't just simplify innovation they redefine it.
+            solutions that don't just simplify innovation—they redefine it.
             Elevate efficiency, spark growth, and uncover opportunities you
             didn't know existed.
           </p>
@@ -85,8 +94,11 @@ const Hero = () => {
               GET STARTED
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="group flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium text-base sm:text-lg transition-all backdrop-blur-sm">
-              LEARN MORE
+            <button
+              onClick={handleRedirectToSignup}
+              className="group flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium text-base sm:text-lg transition-all backdrop-blur-sm"
+            >
+              SIGN UP
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

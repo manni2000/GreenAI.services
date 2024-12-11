@@ -14,8 +14,10 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({ name: "", email: "", message: "" });
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isErrorVisible, setIsErrorVisible] = useState(false);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     const newErrors = { name: "", email: "", message: "" };
 
     if (!name) newErrors.name = "Name is required";
@@ -27,10 +29,36 @@ const Contact = () => {
       return;
     }
 
-    const mailtoLink = `mailto:education@greenai.services?subject=Contact%20Form&body=${encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage: ${message}`
-    )}`;
-    window.location.href = mailtoLink;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setIsPopupVisible(true);
+        setName("");
+        setEmail("");
+        setMessage("");
+        setTimeout(() => {
+          setIsPopupVisible(false);
+        }, 3000);
+      } else {
+        setIsErrorVisible(true);
+        setTimeout(() => {
+          setIsErrorVisible(false);
+        }, 3000);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setIsErrorVisible(true);
+      setTimeout(() => {
+        setIsErrorVisible(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -171,6 +199,27 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      {isPopupVisible && (
+        <div className="popup">Message sent successfully!</div>
+      )}
+      {isErrorVisible && (
+        <div className="popup error">Failed to send the message.</div>
+      )}
+      <style>{`
+        .popup {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background-color: #4caf50;
+          color: white;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .popup.error {
+          background-color: #f44336;
+        }
+      `}</style>
     </section>
   );
 };

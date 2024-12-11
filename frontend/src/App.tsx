@@ -92,10 +92,7 @@ function App() {
               path="/robotic-automation"
               element={<RoboticAutomationPage />}
             />
-            <Route
-              path="/Surface-Analyzer"
-              element={<SurfaceAnalyzerPage />}
-            />
+            <Route path="/Surface-Analyzer" element={<SurfaceAnalyzerPage />} />
             <Route path="/carbon-footprint" element={<CarbonFootprintPage />} />
             <Route path="/signin" element={<Auth setUser={setUser} />} />
             <Route path="/signup" element={<Auth setUser={setUser} />} />

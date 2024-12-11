@@ -10,7 +10,7 @@ import mongoose from 'mongoose';
 const app = express();
 
 // Set Mongoose options
-mongoose.set('strictQuery', true);  // Ensures strict query behavior with Mongoose
+mongoose.set('strictQuery', true);  
 
 // Middleware
 app.use(cors());
@@ -20,11 +20,11 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 
 // Error Handling
-app.use(notFound);  // Handle 404 Not Found
-app.use(errorHandler);  // Handle errors
+app.use(notFound);  
+app.use(errorHandler);  
 
 // Connect to Database
-connectDB();  // Assuming connectDB is set up in './config/database.js'
+connectDB();  
 
 // Start Server
 const PORT = config.PORT || 5000;

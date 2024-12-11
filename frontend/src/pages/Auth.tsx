@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import SignInForm from "../components/auth/SignInForm";
 import SignUpForm from "../components/auth/SignUpForm";
 import logo from "../components/img/logo-bg.png";
@@ -8,7 +9,17 @@ interface AuthProps {
 }
 
 const Auth: React.FC<AuthProps> = ({ setUser }) => {
+  const location = useLocation();
   const [isSignIn, setIsSignIn] = useState(true);
+
+  // Set the form based on the URL path
+  useEffect(() => {
+    if (location.pathname === "/signup") {
+      setIsSignIn(false);
+    } else {
+      setIsSignIn(true);
+    }
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -27,22 +38,22 @@ const Auth: React.FC<AuthProps> = ({ setUser }) => {
             {isSignIn ? (
               <>
                 Don't have an account?{" "}
-                <button
-                  onClick={() => setIsSignIn(false)}
+                <Link
+                  to="/signup"
                   className="font-medium text-green-600 hover:text-green-500"
                 >
                   Sign Up
-                </button>
+                </Link>
               </>
             ) : (
               <>
                 Already have an account?{" "}
-                <button
-                  onClick={() => setIsSignIn(true)}
+                <Link
+                  to="/signin"
                   className="font-medium text-green-600 hover:text-green-500"
                 >
                   Sign In
-                </button>
+                </Link>
               </>
             )}
           </p>

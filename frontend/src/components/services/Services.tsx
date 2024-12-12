@@ -7,7 +7,7 @@ const services = [
     id: 1,
     name: "Educational Innovations for the Digital Age",
     description:
-      "Revolutionizing education with AI-driven tools to enhance personalized learning, support educators, and improve outcomes.",
+      "Revolutionizing education with AI-driven tools to enhance personalized learning, and improve outcomes.",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
     link: "/educational-innovations",
   },
@@ -15,7 +15,7 @@ const services = [
     id: 2,
     name: "Next-Generation Customer Experience",
     description:
-      "Revolutionizing customer service through AI-powered solutions that enhance engagement, support, and satisfaction.",
+      "Revolutionizing customer service through AI-powered solutions that enhance engagement, support",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
     link: "/customer-experience",
   },
@@ -23,7 +23,7 @@ const services = [
     id: 3,
     name: "Vision-Embedded Robotic Automation",
     description:
-      "AI-powered robotic systems that combine vision and perception for smarter automation and interaction.",
+      "AI-powered robotic systems that combine vision and perception for smarter automation.",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
     link: "/robotic-automation",
   },
@@ -123,7 +123,7 @@ const Services = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-green-400 mb-4 decoration-4 underline-offset-8">
             OUR SERVICES
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-2xl text-gray-300">
             Experience our revolutionary AI-driven services designed to elevate
             your success.
           </p>
@@ -143,7 +143,7 @@ const Services = () => {
             >
               <div className="flex flex-col justify-between h-full">
                 <div className="text-center">
-                  <h3 className="text-4xl font-bold text-white mb-4">
+                  <h3 className="text-3xl font-bold text-white mb-3">
                     {service.name}
                   </h3>
                   <p className="text-gray-300 mb-4">{service.description}</p>

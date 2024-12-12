@@ -28,6 +28,7 @@ import AllIndustriesPage from "./components/industries/AllIndustriesPage";
 import AllWhygreenaiPage from "./components/why-choose/AllWhygreenaiPage";
 import AllEducationPage from "./components/education/AllEducationPage";
 import { login } from "./services/api";
+import Chatbox from "../src/components/home/chatbox";
 
 function App() {
   const [user, setUser] = useState<{ name: string } | null>(null);
@@ -104,6 +105,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <Chatbox />
       </div>
     </Router>
   );

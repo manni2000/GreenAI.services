@@ -1,7 +1,8 @@
 import React from "react";
 import EducationCard from "./EducationCard";
 import EducationImage from "../img/education.webp";
-import OrganisedByImg from "../img/jadavpur.png"; // Update the path to your "Organised By" image
+import JadavpurLogo from "../img/jadavpur.png";
+import GreenAILogo from "../img/logo.png";
 
 const Education = () => {
   return (
@@ -32,13 +33,13 @@ const Education = () => {
               title="Internship on Essentials of Gen AI and ML"
               subheading="Essentials of Gen AI and ML"
               description="Online Classes Start From 15 Nov 2024. Are you a 3rd or final year undergraduate student looking to gain a significant edge in the job market?"
-              organisedByImg={OrganisedByImg}
+              organisedByImgs={[JadavpurLogo, GreenAILogo]}
             />
             <EducationCard
               title="2-days crash course on Industry 4.0 AI meets IoT"
-              subheading="2-day Crash Course on Industry 4.0"
-              description="Online Classes Start From 15 Nov 2024. Are you looking to leverage IoT, AI, and Industry 4.0 to create new business opportunities, improve processes, and drive innovation in your organization?"
-              organisedByImg={OrganisedByImg}
+              subheading="Industry 4.0 AI meets IoT"
+              description="Join our 2-days crash course to learn about the intersection of AI and IoT in Industry 4.0."
+              organisedByImgs={[JadavpurLogo, GreenAILogo]}
             />
           </div>
         </div>

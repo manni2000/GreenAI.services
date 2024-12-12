@@ -172,17 +172,22 @@ const IndustryList = () => {
           </div>
 
           {selectedIndustry && (
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
-              <img
-                src={selectedIndustry.image}
-                alt={selectedIndustry.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-7">
-                <h3 className="text-4xl font-bold mb-9">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl flex flex-col">
+              {/* Image Section */}
+              <div className="flex-grow">
+                <img
+                  src={selectedIndustry.image}
+                  alt={selectedIndustry.name}
+                  className="w-full h-56 object-cover"
+                />
+              </div>
+
+              {/* Content Section */}
+              <div className="p-7 flex-grow flex flex-col justify-between">
+                <h3 className="text-4xl font-bold mb-4">
                   {selectedIndustry.name}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-6">
                   {selectedIndustry.description.map((item, index) => (
                     <li key={index} className="flex items-center gap-2">
                       <ArrowRight className="w-5 h-5 text-green-500" />
@@ -191,7 +196,7 @@ const IndustryList = () => {
                   ))}
                 </ul>
                 <button
-                  className="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors text-lg font-bold"
+                  className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors text-lg font-bold self-start"
                   onClick={handleReadMore}
                 >
                   Read More

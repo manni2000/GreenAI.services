@@ -19,6 +19,10 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
     navigate("/signin");
   };
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false); // Close the menu when a link is clicked
+  };
+
   return (
     <header className="bg-white text-gray-800 shadow-sm fixed w-full z-50">
       <nav className="container mx-auto px-4 py-4">
@@ -123,36 +127,42 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
           <div className="md:hidden pt-4 pb-3 space-y-3">
             <Link
               to="/"
+              onClick={handleLinkClick}
               className="block hover:text-green-600 transition-colors"
             >
               Home
             </Link>
             <Link
               to="/services"
+              onClick={handleLinkClick}
               className="block hover:text-green-600 transition-colors"
             >
               Services
             </Link>
             <Link
               to="/industries"
+              onClick={handleLinkClick}
               className="block hover:text-green-600 transition-colors"
             >
               Industries
             </Link>
             <Link
               to="/why-greenai"
+              onClick={handleLinkClick}
               className="block hover:text-green-600 transition-colors"
             >
               Why GreenAI
             </Link>
             <Link
               to="/education"
+              onClick={handleLinkClick}
               className="block hover:text-green-600 transition-colors"
             >
               Education
             </Link>
             <Link
               to="/contact"
+              onClick={handleLinkClick}
               className="block hover:text-green-600 transition-colors"
             >
               Contact
@@ -172,12 +182,14 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               <div className="pt-4 space-y-2">
                 <Link
                   to="/signin"
+                  onClick={handleLinkClick}
                   className="block w-full px-4 py-2 text-green-600 hover:text-green-700 font-medium transition-colors text-left"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/signup"
+                  onClick={handleLinkClick}
                   className="block w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-left"
                 >
                   Sign Up

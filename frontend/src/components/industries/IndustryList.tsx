@@ -8,6 +8,7 @@ import Power from "../img/power.jpg";
 import Transportation from "../img/infrastructure.webp";
 import Mining from "../img/mining.jpeg";
 import Textile from "../img/textile.webp";
+import CementImage from "../img/cement.png";
 
 const industries = [
   {
@@ -90,7 +91,7 @@ const industries = [
   {
     id: 8,
     name: "Cement",
-    image: Textile,
+    image: CementImage,
     description: [
       "Predictive Maintenance Systems",
       "Concrete Quality Analysis",

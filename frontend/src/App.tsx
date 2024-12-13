@@ -59,7 +59,7 @@ function App() {
               path="/"
               element={
                 <>
-                  <Hero />
+                  <Hero servicesRef={React.createRef<HTMLDivElement>()} />
                   <Services />
                   <IndustryList />
                   <Vision />

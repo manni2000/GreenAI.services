@@ -42,7 +42,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
       <div className="flex justify-between items-center mt-4">
         <button
           onClick={handleReadMore}
-          className="px-3 py-2 bg-green-500 text-white rounded-md hover:bg-green-700 transition-colors text-xs font-medium md:px-4 md:py-2 md:text-sm"
+          className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-900 transition-colors text-lg font-bold self-start"
         >
           Read More
         </button>

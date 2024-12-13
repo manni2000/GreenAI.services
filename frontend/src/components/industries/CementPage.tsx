@@ -41,29 +41,30 @@ const CementPage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
               <h3 className="text-2xl font-bold text-green-700 mb-4">
-                High-Resolution Imaging
+                Predictive Maintenance Systems
               </h3>
               <p className="text-gray-700">
-                Implementation of advanced imaging technologies to ensure the
-                highest quality in cement production.
+                AI-driven predictive maintenance to prevent equipment failures,
+                reduce downtime, and enhance operational reliability.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
               <h3 className="text-2xl font-bold text-green-700 mb-4">
-                Real-Time AI Detection
+                Concrete Quality Analysis
               </h3>
               <p className="text-gray-700">
-                AI-driven real-time detection systems to monitor and optimize
-                the production process.
+                Advanced tools and techniques for monitoring and improving the
+                quality of concrete to meet industry standards and client
+                expectations.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
               <h3 className="text-2xl font-bold text-green-700 mb-4">
-                Tailored Insights
+                Energy-Efficient Cement Management
               </h3>
               <p className="text-gray-700">
-                Providing customized insights to improve efficiency and
-                sustainability in cement manufacturing.
+                Intelligent systems for managing energy usage, reducing costs,
+                and minimizing the environmental impact of cement manufacturing.
               </p>
             </div>
           </div>

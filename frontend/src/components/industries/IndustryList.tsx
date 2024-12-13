@@ -87,6 +87,17 @@ const industries = [
     ],
     path: "/textile",
   },
+  {
+    id: 8,
+    name: "Cement",
+    image: Textile,
+    description: [
+      "High-Resolution Imaging",
+      "Real-Time AI Detection",
+      "Tailored Insights",
+    ],
+    path: "/cement",
+  },
 ];
 
 const IndustryList = () => {
@@ -168,11 +179,11 @@ const IndustryList = () => {
           {selectedIndustry && (
             <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl flex flex-col">
               {/* Image Section */}
-              <div className="flex-grow">
+              <div className="flex-shrink-0">
                 <img
                   src={selectedIndustry.image}
                   alt={selectedIndustry.name}
-                  className="w-full h-56 object-cover"
+                  className="w-full h-[300px] md:h-[300px] object-cover"
                 />
               </div>
 

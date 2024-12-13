@@ -22,6 +22,7 @@ import CustomerExperiencePage from "./components/services/CustomerExperiencePage
 import RoboticAutomationPage from "./components/services/RoboticAutomationPage";
 import CarbonFootprintPage from "./components/services/CarbonFootprintPage";
 import TextilePage from "./components/industries/TextilePage";
+import CementPage from "./components/industries/CementPage";
 import Industry4IoTPage from "./components/education/Industry4IoTPage";
 import GenAIMLPage from "./components/education/GenAIMLPage";
 import Auth from "../src/pages/Auth";
@@ -74,6 +75,7 @@ function App() {
             <Route path="/power" element={<PowerPage />} />
             <Route path="/transportation" element={<TransportationPage />} />
             <Route path="/mining" element={<MiningPage />} />
+            <Route path="/cement" element={<CementPage />} />
             <Route
               path="/generative-ai-chatbot"
               element={<GenerativeAIChatbotPage />}

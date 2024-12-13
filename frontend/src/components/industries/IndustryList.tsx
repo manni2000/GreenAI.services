@@ -183,7 +183,7 @@ const IndustryList = () => {
                 <img
                   src={selectedIndustry.image}
                   alt={selectedIndustry.name}
-                  className="w-full h-[300px] md:h-[300px] object-cover"
+                  className="w-full h-[300px] md:h-[350px] object-cover"
                 />
               </div>
 
@@ -192,11 +192,13 @@ const IndustryList = () => {
                 <h3 className="text-4xl font-bold mb-4">
                   {selectedIndustry.name}
                 </h3>
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-4 mb-6">
                   {selectedIndustry.description.map((item, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <ArrowRight className="w-5 h-5 text-green-500" />
-                      <span>{item}</span>
+                    <li key={index} className="flex items-center gap-4">
+                      <ArrowRight className="w-6 h-6 text-green-500" />
+                      <span className="text-lg md:text-xl text-gray-700">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>

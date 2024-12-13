@@ -91,11 +91,11 @@ const industries = [
   {
     id: 8,
     name: "Cement",
-    image: CementImage,
+    image: Textile,
     description: [
-      "High-Resolution Imaging",
-      "Real-Time AI Detection",
-      "Tailored Insights",
+      "Predictive Maintenance Systems",
+      "Concrete Quality Analysis",
+      "Energy-Efficient Cement Management",
     ],
     path: "/cement",
   },

@@ -30,7 +30,6 @@ const Hero = () => {
       className="relative min-h-screen overflow-hidden flex items-center justify-center"
       id="home"
     >
-      {/* Background with Overlay */}
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -41,7 +40,6 @@ const Hero = () => {
         }}
       />
 
-      {/* Animated Particles Effect */}
       <div className="absolute inset-0 z-1 opacity-30">
         <div
           className="absolute w-4 h-4 bg-green-400 rounded-full animate-ping"
@@ -57,7 +55,6 @@ const Hero = () => {
         />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
           <div className="inline-block px-4 py-2 bg-green-500/20 rounded-full mb-4">
@@ -65,10 +62,8 @@ const Hero = () => {
               AI-Powered Solutions
             </span>
           </div>
-
-          {/* GreenAI Text with Animation */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-green-400 animate-color-motion">
-            Green<span className="text-white">AI</span>
+            GREEN<span className="text-white">AI</span>
           </h1>
 
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-white">

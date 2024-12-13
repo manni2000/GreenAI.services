@@ -21,7 +21,9 @@ import EducationalInnovationsPage from "./components/services/EducationalInnovat
 import CustomerExperiencePage from "./components/services/CustomerExperiencePage";
 import RoboticAutomationPage from "./components/services/RoboticAutomationPage";
 import CarbonFootprintPage from "./components/services/CarbonFootprintPage";
-import SurfaceAnalyzerPage from "./components/industries/SurfaceAnalyzerPage";
+import TextilePage from "./components/industries/TextilePage";
+import Industry4IoTPage from "./components/education/Industry4IoTPage";
+import GenAIMLPage from "./components/education/GenAIMLPage";
 import Auth from "../src/pages/Auth";
 import AllServicesPage from "./components/services/AllServicesPage";
 import AllIndustriesPage from "./components/industries/AllIndustriesPage";
@@ -34,7 +36,6 @@ function App() {
   const [user, setUser] = useState<{ name: string } | null>(null);
 
   useEffect(() => {
-    // Example usage of the login service
     const authenticateUser = async () => {
       try {
         const userData = await login("user@example.com", "password123");
@@ -49,7 +50,7 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen">
+      <div className="flex flex-col min-h-screen">
         <Header user={user} setUser={setUser} />
         <main className="space-y-0">
           <Routes>
@@ -93,7 +94,9 @@ function App() {
               path="/robotic-automation"
               element={<RoboticAutomationPage />}
             />
-            <Route path="/Surface-Analyzer" element={<SurfaceAnalyzerPage />} />
+            <Route path="/gen-ai-ml" element={<GenAIMLPage />} />
+            <Route path="/industry-4-ai-iot" element={<Industry4IoTPage />} />
+            <Route path="/textile" element={<TextilePage />} />
             <Route path="/carbon-footprint" element={<CarbonFootprintPage />} />
             <Route path="/signin" element={<Auth setUser={setUser} />} />
             <Route path="/signup" element={<Auth setUser={setUser} />} />

@@ -7,7 +7,7 @@ import Automobile from "../img/automobile.png";
 import Power from "../img/power.jpg";
 import Transportation from "../img/infrastructure.webp";
 import Mining from "../img/mining.jpeg";
-import SurfaceAnalyzer from "../img/SurfaceAnalyzer.webp";
+import Textile from "../img/textile.webp";
 
 const industries = [
   {
@@ -78,14 +78,14 @@ const industries = [
   },
   {
     id: 7,
-    name: "SurfaceAnalyzer",
-    image: SurfaceAnalyzer,
+    name: "Textile",
+    image: Textile,
     description: [
-      "Purpose-Built for Fabrics",
-      "High-Resolution Inspection",
-      "AI-Driven Detection",
+      "High-Resolution Imaging",
+      "Real-Time AI Detection",
+      "Tailored Insights",
     ],
-    path: "/Surface-Analyzer",
+    path: "/textile",
   },
 ];
 
@@ -93,9 +93,7 @@ const IndustryList = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Initialize selected industry from location state or default to first industry
   const [selectedIndustry, setSelectedIndustry] = useState(() => {
-    // Check if we have a saved industry from navigation state
     const locationState = location.state as {
       selectedIndustryId?: number;
     } | null;
@@ -105,14 +103,12 @@ const IndustryList = () => {
     );
   });
 
-  // Restore scroll position and selected industry when returning to the page
   useEffect(() => {
     const locationState = location.state as {
       scrollPosition?: number;
       selectedIndustryId?: number;
     } | null;
 
-    // Scroll to saved position if exists
     if (locationState?.scrollPosition) {
       window.scrollTo({
         top: locationState.scrollPosition,
@@ -122,13 +118,11 @@ const IndustryList = () => {
   }, [location.state]);
 
   const handleReadMore = () => {
-    // Smooth scroll to top before navigation
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
 
-    // Navigate with state to remember selected industry and scroll position
     if (selectedIndustry) {
       navigate(selectedIndustry.path, {
         state: {
@@ -143,7 +137,7 @@ const IndustryList = () => {
     <section id="industries" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-4xl font-bold text-gray-900 mb-4">
             OUR INDUSTRIES
           </h2>
           <p className="text-xl text-gray-600">

@@ -14,10 +14,8 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({ name: "", email: "", message: "" });
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [isErrorVisible, setIsErrorVisible] = useState(false);
 
-  const handleSendMessage = async () => {
+  const handleSendMessage = () => {
     const newErrors = { name: "", email: "", message: "" };
 
     if (!name) newErrors.name = "Name is required";
@@ -29,36 +27,16 @@ const Contact = () => {
       return;
     }
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
+    const mailtoLink = `mailto:product@greenai.services?subject=Message from ${name}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    )}`;
 
-      if (response.ok) {
-        setIsPopupVisible(true);
-        setName("");
-        setEmail("");
-        setMessage("");
-        setTimeout(() => {
-          setIsPopupVisible(false);
-        }, 3000);
-      } else {
-        setIsErrorVisible(true);
-        setTimeout(() => {
-          setIsErrorVisible(false);
-        }, 3000);
-      }
-    } catch (error) {
-      console.error("Error sending message:", error);
-      setIsErrorVisible(true);
-      setTimeout(() => {
-        setIsErrorVisible(false);
-      }, 3000);
-    }
+    window.location.href = mailtoLink;
+
+    setName("");
+    setEmail("");
+    setMessage("");
+    setErrors({ name: "", email: "", message: "" });
   };
 
   return (
@@ -68,7 +46,7 @@ const Contact = () => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Get in Touch
           </h2>
           <p className="text-lg text-gray-600 mb-8">
@@ -82,37 +60,48 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
                 Contact Information
               </h3>
-              <div className="space-y-2 text-center">
-                <div className="flex items-center justify-center space-x-3">
-                  <MapPin className="w-6 h-6 text-green-600" />
-                  <span className="text-gray-700">
-                    Address: GreenAI Services Pvt Ltd, Kolkata, West Bengal,
-                    700037 India
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-8 h-8 text-green-600 mt-1" />
+                  <span className="text-gray-700 leading-tight">
+                    GreenAI Services Pvt Ltd, Kolkata, West Bengal, 700037 India
                   </span>
                 </div>
-                <div className="flex items-center justify-center space-x-3">
-                  <Phone className="w-6 h-6 text-green-600" />
-                  <span className="text-gray-700">Phone: +91 89819 41888</span>
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-8 h-8 text-green-600" />
+                  <span className="text-gray-700">+91 89819 41888</span>
                 </div>
-                <div className="flex items-center justify-center space-x-3">
-                  <Mail className="w-6 h-6 text-green-600" />
+                <div className="flex items-center space-x-3">
+                  <Mail className="w-8 h-8 text-green-600" />
                   <span className="text-gray-700">
-                    Email: education@greenai.services
+                    education@greenai.services
                   </span>
                 </div>
               </div>
-              <div className="flex space-x-4 mt-4 justify-center">
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  <Facebook className="w-6 h-6 text-green-600 hover:text-green-400 transition-colors" />
+              <div className="flex flex-wrap justify-center gap-4 mt-4">
+                <a
+                  href="#"
+                  className="bg-gray-100 p-3 rounded-full hover:bg-green-400 hover:text-white transition-all flex items-center justify-center w-12 h-12"
+                >
+                  <Facebook className="w-5 h-5" />
                 </a>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  <Linkedin className="w-6 h-6 text-green-600 hover:text-green-400 transition-colors" />
+                <a
+                  href="#"
+                  className="bg-gray-100 p-3 rounded-full hover:bg-green-400 hover:text-white transition-all flex items-center justify-center w-12 h-12"
+                >
+                  <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  <Twitter className="w-6 h-6 text-green-600 hover:text-green-400 transition-colors" />
+                <a
+                  href="#"
+                  className="bg-gray-100 p-3 rounded-full hover:bg-green-400 hover:text-white transition-all flex items-center justify-center w-12 h-12"
+                >
+                  <Twitter className="w-5 h-5" />
                 </a>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  <Instagram className="w-6 h-6 text-green-600 hover:text-green-400 transition-colors" />
+                <a
+                  href="#"
+                  className="bg-gray-100 p-3 rounded-full hover:bg-green-400 hover:text-white transition-all flex items-center justify-center w-12 h-12"
+                >
+                  <Instagram className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -199,27 +188,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      {isPopupVisible && (
-        <div className="popup">Message sent successfully!</div>
-      )}
-      {isErrorVisible && (
-        <div className="popup error">Failed to send the message.</div>
-      )}
-      <style>{`
-        .popup {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          background-color: #4caf50;
-          color: white;
-          padding: 10px;
-          border-radius: 5px;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .popup.error {
-          background-color: #f44336;
-        }
-      `}</style>
     </section>
   );
 };

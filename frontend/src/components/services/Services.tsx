@@ -58,7 +58,6 @@ const Services = () => {
   const location = useLocation();
   const servicesRef = useRef<HTMLDivElement>(null);
 
-  // Initialize selectedService from location state or default to first service
   const [selectedService, setSelectedService] = useState(() => {
     const locationState = location.state as {
       selectedServiceId?: number;
@@ -70,14 +69,12 @@ const Services = () => {
     );
   });
 
-  // Restore scroll position when coming back to the page
   useEffect(() => {
     const locationState = location.state as {
       selectedServiceId?: number;
       scrollPosition?: number;
     } | null;
 
-    // If we have a saved scroll position, scroll to it
     if (locationState?.scrollPosition && servicesRef.current) {
       window.scrollTo({
         top: locationState.scrollPosition,
@@ -90,13 +87,10 @@ const Services = () => {
     link: string,
     service: (typeof services)[0]
   ) => {
-    // Ensure we have a reference to the services section
     if (servicesRef.current) {
-      // Calculate the scroll position relative to the services section
       const sectionTop =
         servicesRef.current.getBoundingClientRect().top + window.scrollY;
 
-      // Navigate with state to remember selected service and scroll position
       navigate(link, {
         state: {
           selectedServiceId: service.id,
@@ -105,7 +99,6 @@ const Services = () => {
       });
     }
 
-    // Smooth scroll to top of the section
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -120,7 +113,7 @@ const Services = () => {
     >
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-green-400 mb-4 decoration-4 underline-offset-8">
+          <h2 className="text-4xl md:text-4xl font-bold text-green-400 mb-4 decoration-4 underline-offset-8">
             OUR SERVICES
           </h2>
           <p className="text-2xl text-gray-300">

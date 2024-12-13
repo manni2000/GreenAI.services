@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
@@ -56,11 +56,12 @@ const services = [
 const AllServicesPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const servicesRef = useRef<HTMLDivElement>(null);
 
-  // Initialize selectedService from location state or default to first service
   const [selectedService, setSelectedService] = useState(() => {
     const locationState = location.state as {
       selectedServiceId?: number;
+      scrollPosition?: number;
     } | null;
     const initialServiceId = locationState?.selectedServiceId;
     return (
@@ -69,42 +70,53 @@ const AllServicesPage = () => {
   });
 
   useEffect(() => {
-    // Scroll to top if coming back from a service page
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, []);
+    const locationState = location.state as {
+      selectedServiceId?: number;
+      scrollPosition?: number;
+    } | null;
+
+    if (locationState?.scrollPosition && servicesRef.current) {
+      window.scrollTo({
+        top: locationState.scrollPosition,
+        behavior: "instant",
+      });
+    }
+  }, [location.state]);
 
   const handleServiceNavigation = (
     link: string,
     service: (typeof services)[0]
   ) => {
-    // Smooth scroll to top before navigation
+    if (servicesRef.current) {
+      const sectionTop =
+        servicesRef.current.getBoundingClientRect().top + window.scrollY;
+
+      navigate(link, {
+        state: {
+          selectedServiceId: service.id,
+          scrollPosition: sectionTop,
+        },
+      });
+    }
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    });
-
-    // Navigate with state to remember selected service
-    navigate(link, {
-      state: {
-        selectedServiceId: service.id,
-      },
     });
   };
 
   return (
     <section
       id="services"
+      ref={servicesRef}
       className="py-20 bg-gradient-to-r from-gray-900 to-gray-800"
     >
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-green-400 mb-4 decoration-4 underline-offset-8">
+          <h2 className="text-4xl md:text-4xl font-bold text-green-400 mb-4 decoration-4 underline-offset-8">
             OUR SERVICES
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-2xl text-gray-300">
             Experience our revolutionary AI-driven services designed to elevate
             your success.
           </p>
@@ -124,7 +136,7 @@ const AllServicesPage = () => {
             >
               <div className="flex flex-col justify-between h-full">
                 <div className="text-center">
-                  <h3 className="text-4xl font-bold text-white mb-4">
+                  <h3 className="text-2.5xl font-bold text-white mb-3">
                     {service.name}
                   </h3>
                   <p className="text-gray-300 mb-4">{service.description}</p>

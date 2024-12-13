@@ -66,6 +66,29 @@
   }
 }
 
+.education-card {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.education-card:hover {
+  @apply transform -translate-y-1;
+}
+
+.education-card::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-[2px] bg-green-500 transform scale-x-0 transition-transform duration-300 origin-left;
+}
+
+.education-card:hover::after {
+  @apply scale-x-100;
+}
+
+@media (min-width: 1024px) {
+  .sticky {
+    position: sticky;
+    top: 2rem;
+  }
+}
 .card-hover-effect {
   transition: all 0.3s ease-in-out;
 }

@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
   };
 
   const handleLinkClick = () => {
-    setIsMenuOpen(false); // Close the menu when a link is clicked
+    setIsMenuOpen(false);
   };
 
   return (
@@ -31,7 +31,6 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
             <img src={logo} alt="Logo" className="h-10 w-50" />
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
@@ -70,7 +69,6 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               Contact
             </Link>
 
-            {/* Auth Buttons or Avatar */}
             {user ? (
               <div className="relative">
                 <button
@@ -109,7 +107,6 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -122,7 +119,6 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-3 space-y-3">
             <Link
@@ -168,7 +164,6 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               Contact
             </Link>
 
-            {/* Mobile Auth Buttons or Avatar */}
             {user ? (
               <div className="pt-4 space-y-2">
                 <button

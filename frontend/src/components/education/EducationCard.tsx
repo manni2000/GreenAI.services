@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 interface EducationCardProps {
   title: string;
   subheading: string;
-  description: string;
+  description: React.ReactNode;
   organisedByImgs: string[];
   link: string;
 }
@@ -17,7 +17,6 @@ const EducationCard: React.FC<EducationCardProps> = ({
   link,
 }) => {
   const navigate = useNavigate();
-  const topRef = useRef<HTMLDivElement>(null);
 
   const handleReadMore = () => {
     window.scrollTo({

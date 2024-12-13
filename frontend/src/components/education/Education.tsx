@@ -37,7 +37,15 @@ const Education = () => {
             <EducationCard
               title="Internship on Essentials of Gen AI and ML"
               subheading="Essentials of Gen AI and ML"
-              description="Online Classes Start From 15 Nov 2024. Are you a 3rd or final year undergraduate student looking to gain a significant edge in the job market?"
+              description={
+                <>
+                  <h2>Online Classes Start From 15 Nov 2024.</h2>
+                  <h3>
+                    Are you a 3rd or final year undergraduate student looking to
+                    gain a significant edge in the job market?
+                  </h3>
+                </>
+              }
               organisedByImgs={[GreenAILogo, JadavpurLogo]}
               link="/gen-ai-ml"
             />

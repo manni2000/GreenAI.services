@@ -92,6 +92,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/educational-innovations"
+                  onClick={() => handleNavigation({ path: "/" })}
                   className="hover:text-green-400 transition-colors"
                 >
                   Educational Innovations
@@ -100,6 +101,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/customer-experience"
+                  onClick={() => handleNavigation({ path: "/" })}
                   className="hover:text-green-400 transition-colors"
                 >
                   Customer Experience
@@ -108,6 +110,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/robotic-automation"
+                  onClick={() => handleNavigation({ path: "/" })}
                   className="hover:text-green-400 transition-colors"
                 >
                   Robotic Automation
@@ -116,6 +119,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/carbon-footprint"
+                  onClick={() => handleNavigation({ path: "/" })}
                   className="hover:text-green-400 transition-colors"
                 >
                   Carbon Management
@@ -124,6 +128,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/generative-ai-chatbot"
+                  onClick={() => handleNavigation({ path: "/" })}
                   className="hover:text-green-400 transition-colors"
                 >
                   AI Chatbots
@@ -132,6 +137,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/industrial-automation"
+                  onClick={() => handleNavigation({ path: "/" })}
                   className="hover:text-green-400 transition-colors"
                 >
                   Industrial Automation

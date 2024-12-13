@@ -101,6 +101,7 @@ const GenAIMLPage = () => {
                     alt="Scan to Apply"
                     className="h-16 w-16 md:h-20 md:w-20 object-contain"
                   />
+                  <h4>Scan to Apply</h4>
                 </div>
               </div>
               <div className="mt-4 text-center">

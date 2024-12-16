@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import { config } from '../config/env.js';
 import User from '../models/user.model.js';
 import { AppError } from '../utils/appError.js';
-import bcrypt from 'bcryptjs';
 
 export class AuthService {
   static generateToken(userId) {
@@ -20,8 +19,7 @@ export class AuthService {
         throw new AppError(errorMessage, 400);
       }
 
-      const hashedPassword = await bcrypt.hash(userData.password, 10);
-      const newUser = await User.create({ ...userData, password: hashedPassword });
+      const newUser = await User.create(userData);
 
       console.info(`[INFO] User created successfully with email: ${newUser.email}`);
       return newUser;
@@ -40,7 +38,8 @@ export class AuthService {
         throw new AppError('Invalid credentials', 401); 
       }
 
-      const isPasswordValid = await bcrypt.compare(password, user.password);
+      // Use the comparePassword method from the user model
+      const isPasswordValid = await user.comparePassword(password);
       
       if (!isPasswordValid) {
         const warningMessage = `Invalid password for email: ${email}`;

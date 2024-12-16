@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Hero from "./components/home/Hero";
@@ -25,29 +25,15 @@ import TextilePage from "./components/industries/TextilePage";
 import CementPage from "./components/industries/CementPage";
 import Industry4IoTPage from "./components/education/Industry4IoTPage";
 import GenAIMLPage from "./components/education/GenAIMLPage";
-import Auth from "../src/pages/Auth";
+import Auth from "./pages/Auth";
 import AllServicesPage from "./components/services/AllServicesPage";
 import AllIndustriesPage from "./components/industries/AllIndustriesPage";
 import AllWhygreenaiPage from "./components/why-choose/AllWhygreenaiPage";
 import AllEducationPage from "./components/education/AllEducationPage";
-import { login } from "./services/api";
-import Chatbox from "../src/components/home/chatbox";
+import Chatbox from "./components/home/chatbox";
 
 function App() {
   const [user, setUser] = useState<{ name: string } | null>(null);
-
-  useEffect(() => {
-    const authenticateUser = async () => {
-      try {
-        const userData = await login("user@example.com", "password123");
-        console.log("User data:", userData);
-      } catch (error) {
-        console.error("Error logging in:", error);
-      }
-    };
-
-    authenticateUser();
-  }, []);
 
   return (
     <Router>

@@ -6,7 +6,7 @@ import companyLogo from "../img/logo.png";
 const Chatbox: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ sender: string; text: string }[]>([
-    { sender: "System", text: "Chatbot is not live!!" },
+    { sender: "Bot", text: "How can we assist you today?" },
   ]);
   const [input, setInput] = useState("");
 
@@ -14,70 +14,100 @@ const Chatbox: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSendMessage = async () => {
-    if (input.trim()) {
-      const userMessage = { sender: "User", text: input };
-      setMessages((prevMessages) => [...prevMessages, userMessage]);
-      setInput("");
+  const handleSendMessage = (text: string, sender = "User") => {
+    if (text.trim()) {
+      setMessages((prevMessages) => [...prevMessages, { sender, text }]);
+      const lowerText = text.trim().toLowerCase();
 
-      const botResponse = await fetchResponse(input.trim());
+      // Check for unknown messages to trigger fallback response
+      if (
+        !["about", "owners", "contact", "solutions", "team"].includes(lowerText)
+      ) {
+        setTimeout(() => {
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            {
+              sender: "Bot",
+              text: "Connecting admin, Thank you for the query!!",
+            },
+          ]);
+        }, 500);
+      }
+    }
+    setInput("");
+  };
+
+  const handleButtonResponse = (buttonType: string) => {
+    let question = "";
+    let botResponse = "";
+
+    switch (buttonType) {
+      case "about":
+        question = "Let us know about GreenAI Services Pvt Ltd";
+        botResponse = `GreenAI Services Pvt Ltd is a leader in Artificial Intelligence, dedicated to developing innovative solutions that drive transformation across industries. We specialize in Computer Vision, Chatbot Implementation, and AI in Education, delivering state-of-the-art technology that enhances business efficiency and user experiences.\n\nWebsite: www.greenai.services/\nIndustry: IT Services and IT Consulting\nCompany size: 11-50 employees\nHeadquarters: Kolkata, West Bengal\nFounded: 2024`;
+        break;
+      case "owners":
+        question = "Who are the owners of GREENAI SERVICES?";
+        botResponse = `PRASENJIT MAJUMDER, BERJIS MINOO DESAI, SIVARAMAKRISHNAN SRINIVASAN IYER, and RAJARSHI MUKHERJEE are the Directors of GREENAI SERVICES PRIVATE LIMITED.`;
+        break;
+      case "contact":
+        question = "Contact Information";
+        botResponse = `GreenAI Services Pvt Ltd\nKolkata, West Bengal, 700037, India\nPhone: +91 89819 41888\nEmail: education@greenai.services`;
+        break;
+      case "solutions":
+        question = "Explore Our Solutions";
+        botResponse = `Redirecting to solutions page...`;
+        setTimeout(() => (window.location.href = "/services"), 1000);
+        break;
+      case "team":
+        question = "Who are the team members?";
+        botResponse = `Dipashree Pal, Sankhadeep, Alazo, and Manish Kumar are the team members of GreenAI Services Pvt Ltd.`;
+        break;
+      default:
+        break;
+    }
+
+    if (question && botResponse) {
       setMessages((prevMessages) => [
         ...prevMessages,
-        { sender: "Bot", text: botResponse },
+        { sender: "User", text: question },
       ]);
+      setTimeout(() => {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "Bot", text: botResponse },
+        ]);
+      }, 500);
     }
   };
-
-  const fetchResponse = async (query: string): Promise<string> => {
-    try {
-      const response = await fetch("https://api.example.com/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch response");
-      }
-
-      const data = await response.json();
-      return data.reply || "Sorry, I couldn't fetch a response.";
-    } catch (error) {
-      console.error("Error fetching response:", error);
-      return "An error occurred. Please try again later.";
-    }
-  };
-
-  const unreadMessages = !isOpen ? 1 : 0;
 
   return (
     <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
-      <div className="relative">
-        {!isOpen && (
-          <button
-            onClick={handleToggleChatbox}
-            className="relative w-16 h-16 rounded-full focus:outline-none transition-transform transform hover:scale-110"
-          >
-            <img
-              src={greenCircle}
-              alt="Chat"
-              className="w-full h-full object-cover"
-            />
-            <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">
-              {unreadMessages}
-            </span>
-          </button>
-        )}
-      </div>
+      {/* Chatbox Toggle */}
+      {!isOpen && (
+        <button
+          onClick={handleToggleChatbox}
+          className="relative w-16 h-16 rounded-full focus:outline-none transition-transform transform hover:scale-110"
+        >
+          <img
+            src={greenCircle}
+            alt="Chat"
+            className="w-full h-full object-cover"
+          />
+          <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">
+            1
+          </span>
+        </button>
+      )}
 
+      {/* Chatbox Content */}
       {isOpen && (
-        <div className="bg-white rounded-lg shadow-xl p-4 mt-2 w-full max-w-md md:w-96 border border-gray-300 fixed bottom-0 right-0 md:bottom-auto md:right-auto md:relative">
+        <div className="bg-white rounded-lg shadow-xl p-4 w-full max-w-sm md:w-96 border border-gray-300 fixed bottom-0 right-0">
+          {/* Header */}
           <div className="mb-4 flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <img src={companyLogo} alt="Company Logo" className="w-8 h-8" />
-              <h3 className="text-lg md:text-xl font-semibold text-gray-800">
+              <h3 className="text-lg font-semibold text-gray-800">
                 Welcome to GreenAI Services
               </h3>
             </div>
@@ -89,31 +119,62 @@ const Chatbox: React.FC = () => {
             </button>
           </div>
 
-          <p className="text-gray-600 text-sm mb-4 animate-grow">
-            Hi there! I'm here to assist you. Ask me anything or let us know how
-            we can help you today?
-          </p>
-
+          {/* Messages */}
           <div className="h-64 overflow-y-auto border rounded-lg p-3 mb-4 bg-gray-50">
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`p-2 my-2 rounded-lg max-w-[75%] ${
+                className={`p-2 my-2 rounded-lg max-w-[75%] text-sm ${
                   msg.sender === "User"
-                    ? "bg-green-100 self-end text-right"
-                    : msg.sender === "System"
-                    ? "bg-yellow-100 text-center"
-                    : "bg-gray-200 self-start text-left"
+                    ? "bg-green-100 mr-auto text-left"
+                    : "bg-gray-200 ml-auto text-right"
                 }`}
               >
-                <span className="block text-sm font-bold text-gray-700 mb-1">
+                <span className="block font-bold mb-1 text-gray-700">
                   {msg.sender}
                 </span>
-                <span className="block text-gray-800">{msg.text}</span>
+                <span className="block text-gray-800 whitespace-pre-line">
+                  {msg.text}
+                </span>
               </div>
             ))}
           </div>
 
+          {/* Buttons */}
+          <div className="flex flex-col space-y-2 mb-4">
+            <button
+              onClick={() => handleButtonResponse("about")}
+              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 text-sm font-medium"
+            >
+              Let us know about GreenAI Services Pvt Ltd
+            </button>
+            <button
+              onClick={() => handleButtonResponse("owners")}
+              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 text-sm font-medium"
+            >
+              Who are the owners of GREENAI SERVICES?
+            </button>
+            <button
+              onClick={() => handleButtonResponse("team")}
+              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 text-sm font-medium"
+            >
+              Who are the team members?
+            </button>
+            <button
+              onClick={() => handleButtonResponse("solutions")}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 text-sm font-medium"
+            >
+              Explore Our Solutions
+            </button>
+            <button
+              onClick={() => handleButtonResponse("contact")}
+              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 text-sm font-medium"
+            >
+              Contact Information
+            </button>
+          </div>
+
+          {/* Input */}
           <div className="flex">
             <input
               type="text"
@@ -123,8 +184,8 @@ const Chatbox: React.FC = () => {
               placeholder="Type your message..."
             />
             <button
-              onClick={handleSendMessage}
-              className="bg-green-600 text-white px-4 py-2 rounded-r-lg focus:outline-none hover:bg-green-700"
+              onClick={() => handleSendMessage(input)}
+              className="bg-green-600 text-white px-4 py-2 rounded-r-lg hover:bg-green-700"
             >
               Send
             </button>

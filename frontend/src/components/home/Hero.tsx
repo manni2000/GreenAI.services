@@ -70,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ servicesRef }) => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-green-400 animate-color-motion">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-green-400 animate-color-motion leading-tight mt-20 sm:mt-0">
             GREEN<span className="text-white">AI</span>
           </h1>
 
@@ -92,10 +92,9 @@ const Hero: React.FC<HeroProps> = ({ servicesRef }) => {
           </h2>
 
           <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl">
-            Reimagine your potential with Green AI. We craft cutting-edge AI
-            solutions that don't just simplify innovation they redefine it.
-            Elevate efficiency, spark growth, and uncover opportunities you
-            didn't know existed.
+            Unlock your potential with Green AI. We deliver cutting-edge AI
+            solutions that drive efficiency, fuel growth, and uncover new
+            opportunities.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">

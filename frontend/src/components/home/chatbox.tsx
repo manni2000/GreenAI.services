@@ -60,7 +60,7 @@ const Chatbox: React.FC = () => {
         break;
       case "contact":
         question = "Contact Information";
-        botResponse = `Contact us at:\nGreenAI Services Pvt Ltd\nKolkata, West Bengal, 700037\nPhone: +91 89819 41888\nEmail: education@greenai.services`;
+        botResponse = `Contact us at:\nGreenAI Services Pvt Ltd\nKolkata, West Bengal, 700037\nPhone: +91 89819 41888\nEmail: reach@greenai.services`;
         break;
       default:
         break;

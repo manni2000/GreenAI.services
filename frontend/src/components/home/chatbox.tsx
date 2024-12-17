@@ -54,9 +54,9 @@ const Chatbox: React.FC = () => {
         botResponse = `The team members are:\n- Dipashree Pal\n- Sankhadeep\n- Alazo\n- Manish Kumar`;
         break;
       case "solutions":
-        question = "Explore Our Solutions";
-        botResponse = `Redirecting to solutions page...`;
-        setTimeout(() => (window.location.href = "/services"), 1000);
+        question = "Explore Our Products";
+        botResponse = `Redirecting to products page...`;
+        setTimeout(() => (window.location.href = "/product"), 1000);
         break;
       case "contact":
         question = "Contact Information";
@@ -158,7 +158,7 @@ const Chatbox: React.FC = () => {
               onClick={() => handleButtonResponse("solutions")}
               className="w-full px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-700 text-xs md:text-sm font-medium"
             >
-              Explore Our Solutions
+              Explore Our Products
             </button>
             <button
               onClick={() => handleButtonResponse("contact")}

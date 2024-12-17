@@ -31,6 +31,7 @@ import AllIndustriesPage from "./components/industries/AllIndustriesPage";
 import AllWhygreenaiPage from "./components/why-choose/AllWhygreenaiPage";
 import AllEducationPage from "./components/education/AllEducationPage";
 import Chatbox from "./components/home/chatbox";
+import Product from "./components/product/Product";
 
 function App() {
   const [user, setUser] = useState<{ name: string } | null>(null);
@@ -49,6 +50,7 @@ function App() {
                   <Services />
                   <IndustryList />
                   <Vision />
+                  <Product />
                   <WhyChoose />
                   <Education />
                   <Contact />

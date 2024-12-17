@@ -1,6 +1,6 @@
 import React from "react";
 import EducationCard from "./EducationCard";
-import EducationImage from "../img/education.webp";
+import EducationImage from "../img/education1.avif";
 import JadavpurLogo from "../img/jadavpur.png";
 import GreenAILogo from "../img/logo.png";
 
@@ -28,7 +28,7 @@ const Education = () => {
             <img
               src={EducationImage}
               alt="Education Image"
-              className="w-full h-auto max-h-[36rem] object-cover rounded-lg shadow-lg"
+              className="w-full h-auto max-h-[37rem] object-cover rounded-lg shadow-lg"
             />
           </div>
 

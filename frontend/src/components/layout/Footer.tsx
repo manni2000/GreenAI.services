@@ -178,9 +178,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="space-y-2">
-                <p className="text-gray-400">
-                  Email: education@greenai.services
-                </p>
+                <p className="text-gray-400">Email: reach@greenai.services</p>
                 <p className="text-gray-400">Phone: +91 89819 41888</p>
               </div>
             </div>

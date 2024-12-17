@@ -62,7 +62,7 @@ const Contact = () => {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <MapPin className="w-8 h-8 text-green-600 mt-1" />
+                  <MapPin className="w-9 h-9 text-green-600" />
                   <span className="text-gray-700 leading-tight">
                     GreenAI Services Pvt Ltd, Kolkata, West Bengal, 700037 India
                   </span>
@@ -73,9 +73,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-8 h-8 text-green-600" />
-                  <span className="text-gray-700">
-                    education@greenai.services
-                  </span>
+                  <span className="text-gray-700">reach@greenai.services</span>
                 </div>
               </div>
               <div className="flex flex-wrap justify-center gap-4 mt-4">

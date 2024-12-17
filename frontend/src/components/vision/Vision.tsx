@@ -2,7 +2,7 @@ import VisionImg from "../img/vision.png";
 
 const Vision = () => {
   return (
-    <section id="vision" className="relative py-20 bg-gray-200">
+    <section id="vision" className="relative py-20 bg-green-100">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* AI Image */}
@@ -20,9 +20,9 @@ const Vision = () => {
           {/* Vision Content */}
           <div className="space-y-6">
             <div className="space-y-2">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl md:text-4xl font-bold text-green-700 mb-4 decoration-4 underline-offset-8">
                 OUR VISION
-              </h3>
+              </h2>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                 A GREENER FUTURE WITH AI
               </h2>
@@ -30,12 +30,12 @@ const Vision = () => {
 
             <div className="space-y-4 text-gray-700">
               <p>
-                At Green AI, we are committed to blending cutting-edge
-                artificial intelligence with sustainable practices. Our mission
-                is to develop innovative AI solutions that promote a greener,
-                cleaner, and more sustainable future. We envision a world where
-                AI and nature work together to solve some of the most pressing
-                global challenges.
+                At GreenAI, we are committed to blending cutting-edge artificial
+                intelligence with sustainable practices. Our mission is to
+                develop innovative AI solutions that promote a greener, cleaner,
+                and more sustainable future. We envision a world where AI and
+                nature work together to solve some of the most pressing global
+                challenges.
               </p>
               <p>
                 As technology progresses, we continue to explore and implement

@@ -16,7 +16,7 @@ const Product = () => {
     <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">Our Products</h2>
+          <h2 className="text-4xl font-bold text-gray-900">OUR PRODUCTS</h2>
           <p className="text-lg text-gray-600 mt-4">
             Discover our range of innovative products designed to enhance your
             business.

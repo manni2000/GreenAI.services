@@ -19,9 +19,6 @@ const WhyChoose = () => {
         </div>
         <div className="relative mb-12">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center transform transition-transform duration-300 hover:scale-110 shadow-lg">
-              <span className="text-white font-bold text-xl">GreenAI</span>
-            </div>
           </div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -51,6 +51,12 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               Industries
             </Link>
             <Link
+              to="/product"
+              className="hover:text-green-600 transition-colors font-medium"
+            >
+              Product
+            </Link>
+            <Link
               to="/why-greenai"
               className="hover:text-green-600 transition-colors font-medium"
             >
@@ -143,6 +149,13 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               Industries
             </Link>
             <Link
+              to="/product"
+              onClick={handleLinkClick}
+              className="block hover:text-green-600 transition-colors"
+            >
+              Product
+            </Link>
+            <Link
               to="/why-greenai"
               onClick={handleLinkClick}
               className="block hover:text-green-600 transition-colors"
@@ -163,7 +176,6 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
             >
               Contact
             </Link>
-
             {user ? (
               <div className="pt-4 space-y-2">
                 <button

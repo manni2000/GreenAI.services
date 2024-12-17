@@ -32,6 +32,9 @@ import AllWhygreenaiPage from "./components/why-choose/AllWhygreenaiPage";
 import AllEducationPage from "./components/education/AllEducationPage";
 import Chatbox from "./components/home/chatbox";
 import Product from "./components/product/Product";
+import ProductCCTV from "./components/product/CCTV";
+import ProductHealth from "./components/product/Health";
+import ProductSurface from "./components/product/Surface";
 
 function App() {
   const [user, setUser] = useState<{ name: string } | null>(null);
@@ -64,6 +67,7 @@ function App() {
             <Route path="/transportation" element={<TransportationPage />} />
             <Route path="/mining" element={<MiningPage />} />
             <Route path="/cement" element={<CementPage />} />
+            <Route path="/product" element={<Product />} />
             <Route
               path="/generative-ai-chatbot"
               element={<GenerativeAIChatbotPage />}
@@ -95,6 +99,9 @@ function App() {
             <Route path="/why-greenai" element={<AllWhygreenaiPage />} />
             <Route path="/education" element={<AllEducationPage />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/product-cctv" element={<ProductCCTV />} />{" "}
+            <Route path="/product-health" element={<ProductHealth />} />{" "}
+            <Route path="/product-surface" element={<ProductSurface />} />{" "}
           </Routes>
         </main>
         <Footer />

@@ -44,7 +44,6 @@ const Footer = () => {
                   Home
                 </Link>
               </li>
-              <li></li>
               <li>
                 <Link
                   to="/services"
@@ -61,6 +60,15 @@ const Footer = () => {
                   className="hover:text-green-400 transition-colors"
                 >
                   Industries
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/product"
+                  onClick={() => handleNavigation({ path: "/" })}
+                  className="hover:text-green-400 transition-colors"
+                >
+                  Product
                 </Link>
               </li>
               <li>

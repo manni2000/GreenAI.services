@@ -95,8 +95,7 @@ const ProductSurface = () => {
                 Advanced Analytics
               </h3>
               <p className="text-gray-700">
-                Gain deep insights with comprehensive data analysis and
-                reporting.
+                Deep insights with comprehensive data analysis and reporting.
               </p>
             </div>
           </div>

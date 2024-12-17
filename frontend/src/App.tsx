@@ -26,10 +26,6 @@ import CementPage from "./components/industries/CementPage";
 import Industry4IoTPage from "./components/education/Industry4IoTPage";
 import GenAIMLPage from "./components/education/GenAIMLPage";
 import Auth from "./pages/Auth";
-import AllServicesPage from "./components/services/AllServicesPage";
-import AllIndustriesPage from "./components/industries/AllIndustriesPage";
-import AllWhygreenaiPage from "./components/why-choose/AllWhygreenaiPage";
-import AllEducationPage from "./components/education/AllEducationPage";
 import Chatbox from "./components/home/chatbox";
 import Product from "./components/product/Product";
 import ProductCCTV from "./components/product/CCTV";
@@ -94,10 +90,10 @@ function App() {
             <Route path="/carbon-footprint" element={<CarbonFootprintPage />} />
             <Route path="/signin" element={<Auth setUser={setUser} />} />
             <Route path="/signup" element={<Auth setUser={setUser} />} />
-            <Route path="/services" element={<AllServicesPage />} />
-            <Route path="/industries" element={<AllIndustriesPage />} />
-            <Route path="/why-greenai" element={<AllWhygreenaiPage />} />
-            <Route path="/education" element={<AllEducationPage />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/industries" element={<IndustryList />} />
+            <Route path="/why-greenai" element={<WhyChoose />} />
+            <Route path="/education" element={<Education />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/product-cctv" element={<ProductCCTV />} />{" "}
             <Route path="/product-health" element={<ProductHealth />} />{" "}

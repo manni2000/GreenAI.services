@@ -22,19 +22,20 @@ const Product = () => {
             <img
               src={CCTV}
               alt="Product 2"
-              className="w-full h-64 object-cover rounded-t-lg"
+              className="w-full h-48 object-cover rounded-t-lg"
             />
-            <div className="mt-4 flex flex-col justify-between h-48">
+            <div className="mt-4">
               <h3 className="text-2xl font-semibold text-gray-800">
-                Total Surveillance Smarter AI-Powered CCTV Monitoring
+                Total Surveillance Smarter AI-Powered CCTV Monitoring and
+                Automation
               </h3>
-              <p className="text-gray-600 mt-2 flex-grow">
+              <p className="text-gray-600 mt-2">
                 Revolutionize Monitoring with Real-Time Insights and Automation
                 Introducing Total Surveillance, an advanced AI-powered CCTV
                 monitoring system designed to streamline asset tracking,
                 counting, and security management.
               </p>
-              <button className="mt-4 px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors">
+              <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors">
                 Learn More
               </button>
             </div>
@@ -47,19 +48,19 @@ const Product = () => {
             <img
               src={Health}
               alt="Product 3"
-              className="w-full h-64 object-cover rounded-t-lg"
+              className="w-full h-48 object-cover rounded-t-lg"
             />
-            <div className="mt-4 flex flex-col justify-between h-48">
+            <div className="mt-4">
               <h3 className="text-2xl font-semibold text-gray-800">
                 Optimize Conveyor Operations with AI-Powered Health Monitoring
               </h3>
-              <p className="text-gray-600 mt-2 flex-grow">
+              <p className="text-gray-600 mt-2">
                 Prevent Downtime, Enhance Efficiency, and Maximize Productivity
                 Introducing our AI-powered Conveyor Belt Health Monitoring
                 System, a cutting-edge solution designed to ensure the seamless
                 operation of conveyor systems in industrial environments.
               </p>
-              <button className="mt-4 px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors">
+              <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors">
                 Learn More
               </button>
             </div>

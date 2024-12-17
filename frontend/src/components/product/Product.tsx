@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import CCTV from "../img/CCTV.jpg";
 import Health from "../img/Health.jpg";
-import Surface from "../img/Surface.jpg";
+import Surface from "../img/surface.jpg";
 
 const Product = () => {
   const navigate = useNavigate();

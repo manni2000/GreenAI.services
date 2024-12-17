@@ -1,5 +1,5 @@
 import React from "react";
-import Surface from "../img/Surface.jpg";
+import Surface from "../img/surface.jpg";
 
 const ProductSurface = () => {
   return (

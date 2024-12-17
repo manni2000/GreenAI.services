@@ -6,9 +6,15 @@ const WhyChoose = () => {
     <section className="py-20 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold">Why Choose GreenAI</h2>
+          <h2 className="text-4xl font-bold text-green-500">
+            WHY CHOOSE GREENAI
+          </h2>
           <p className="text-lg mt-4 max-w-2xl mx-auto">
-            At GreenAI, we are committed to delivering innovative, tailor-made AI solutions. By leveraging the latest advancements in artificial intelligence, we ensure that our solutions not only meet the unique needs of your business but also align with the highest standards of integrity and responsibility.
+            At GreenAI, we are committed to delivering innovative, tailor-made
+            AI solutions. By leveraging the latest advancements in artificial
+            intelligence, we ensure that our solutions not only meet the unique
+            needs of your business but also align with the highest standards of
+            integrity and responsibility.
           </p>
         </div>
         <div className="relative mb-12">
@@ -32,7 +38,8 @@ const WhyChoose = () => {
               <item.icon className="w-12 h-12 text-green-400 mb-4 transition-transform duration-300 group-hover:scale-110" />
               <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
               <p className="text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                nec odio. Praesent libero. Sed cursus ante dapibus diam.
               </p>
             </div>
           ))}

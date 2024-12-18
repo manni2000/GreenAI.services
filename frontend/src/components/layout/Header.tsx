@@ -57,12 +57,6 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               Product
             </Link>
             <Link
-              to="/why-greenai"
-              className="hover:text-green-600 transition-colors font-medium"
-            >
-              Why GreenAI
-            </Link>
-            <Link
               to="/education"
               className="hover:text-green-600 transition-colors font-medium"
             >
@@ -154,13 +148,6 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               className="block hover:text-green-600 transition-colors"
             >
               Product
-            </Link>
-            <Link
-              to="/why-greenai"
-              onClick={handleLinkClick}
-              className="block hover:text-green-600 transition-colors"
-            >
-              Why GreenAI
             </Link>
             <Link
               to="/education"

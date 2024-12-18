@@ -130,10 +130,7 @@ const IndustryList = () => {
   }, [location.state]);
 
   const handleReadMore = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo(0, 0);
 
     if (selectedIndustry) {
       navigate(selectedIndustry.path, {

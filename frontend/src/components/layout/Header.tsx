@@ -19,8 +19,10 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
     navigate("/signin");
   };
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (path: string) => {
     setIsMenuOpen(false);
+    navigate(path);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -32,42 +34,42 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/"
+            <button
+              onClick={() => handleLinkClick("/")}
               className="hover:text-green-600 transition-colors font-medium"
             >
               Home
-            </Link>
-            <Link
-              to="/services"
+            </button>
+            <button
+              onClick={() => handleLinkClick("/services")}
               className="hover:text-green-600 transition-colors font-medium"
             >
               Service
-            </Link>
-            <Link
-              to="/industries"
+            </button>
+            <button
+              onClick={() => handleLinkClick("/industries")}
               className="hover:text-green-600 transition-colors font-large"
             >
               Industry
-            </Link>
-            <Link
-              to="/product"
+            </button>
+            <button
+              onClick={() => handleLinkClick("/product")}
               className="hover:text-green-600 transition-colors font-medium"
             >
               Product
-            </Link>
-            <Link
-              to="/education"
+            </button>
+            <button
+              onClick={() => handleLinkClick("/education")}
               className="hover:text-green-600 transition-colors font-medium"
             >
               Education
-            </Link>
-            <Link
-              to="/contact"
+            </button>
+            <button
+              onClick={() => handleLinkClick("/contact")}
               className="hover:text-green-600 transition-colors font-medium"
             >
               Contact
-            </Link>
+            </button>
 
             {user ? (
               <div className="relative">
@@ -91,18 +93,18 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               </div>
             ) : (
               <div className="flex items-center space-x-4">
-                <Link
-                  to="/signin"
+                <button
+                  onClick={() => handleLinkClick("/signin")}
                   className="px-4 py-2 text-green-600 hover:text-green-700 font-medium transition-colors"
                 >
                   Sign In
-                </Link>
-                <Link
-                  to="/signup"
+                </button>
+                <button
+                  onClick={() => handleLinkClick("/signup")}
                   className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
                 >
                   Sign Up
-                </Link>
+                </button>
               </div>
             )}
           </div>
@@ -121,48 +123,42 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
 
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-3 space-y-3">
-            <Link
-              to="/"
-              onClick={handleLinkClick}
+            <button
+              onClick={() => handleLinkClick("/")}
               className="block hover:text-green-600 transition-colors"
             >
               Home
-            </Link>
-            <Link
-              to="/services"
-              onClick={handleLinkClick}
+            </button>
+            <button
+              onClick={() => handleLinkClick("/services")}
               className="block hover:text-green-600 transition-colors"
             >
               Service
-            </Link>
-            <Link
-              to="/industries"
-              onClick={handleLinkClick}
+            </button>
+            <button
+              onClick={() => handleLinkClick("/industries")}
               className="block hover:text-green-600 transition-colors"
             >
               Industry
-            </Link>
-            <Link
-              to="/product"
-              onClick={handleLinkClick}
+            </button>
+            <button
+              onClick={() => handleLinkClick("/product")}
               className="block hover:text-green-600 transition-colors"
             >
               Product
-            </Link>
-            <Link
-              to="/education"
-              onClick={handleLinkClick}
+            </button>
+            <button
+              onClick={() => handleLinkClick("/education")}
               className="block hover:text-green-600 transition-colors"
             >
               Education
-            </Link>
-            <Link
-              to="/contact"
-              onClick={handleLinkClick}
+            </button>
+            <button
+              onClick={() => handleLinkClick("/contact")}
               className="block hover:text-green-600 transition-colors"
             >
               Contact
-            </Link>
+            </button>
             {user ? (
               <div className="pt-4 space-y-2">
                 <button
@@ -174,20 +170,18 @@ const Header: React.FC<HeaderProps> = ({ user, setUser }) => {
               </div>
             ) : (
               <div className="pt-4 space-y-2">
-                <Link
-                  to="/signin"
-                  onClick={handleLinkClick}
+                <button
+                  onClick={() => handleLinkClick("/signin")}
                   className="block w-full px-4 py-2 text-green-600 hover:text-green-700 font-medium transition-colors text-left"
                 >
                   Sign In
-                </Link>
-                <Link
-                  to="/signup"
-                  onClick={handleLinkClick}
+                </button>
+                <button
+                  onClick={() => handleLinkClick("/signup")}
                   className="block w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-left"
                 >
                   Sign Up
-                </Link>
+                </button>
               </div>
             )}
           </div>

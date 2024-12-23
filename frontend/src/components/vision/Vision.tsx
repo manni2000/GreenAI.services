@@ -29,20 +29,29 @@ const Vision = () => {
             </div>
 
             <div className="space-y-4 text-gray-700">
-              <p>
-                At GreenAI, we are committed to blending cutting-edge artificial
-                intelligence with sustainable practices. Our mission is to
-                develop innovative AI solutions that promote a greener, cleaner,
-                and more sustainable future. We envision a world where AI and
-                nature work together to solve some of the most pressing global
-                challenges.
+                     <p>
+                At GreenAI, we are committed to blending{" "}
+                <strong className="text-green-700">
+                  cutting-edge artificial intelligence
+                </strong>{" "}
+                with sustainable practices. Our mission is to develop{" "}
+                <strong className="text-green-700">
+                  innovative AI solutions
+                </strong>{" "}
+                that promote a greener, cleaner, and more sustainable future .
+                We envision a world where AI and nature work together to solve
+                some of the most pressing global challenges.
               </p>
               <p>
                 As technology progresses, we continue to explore and implement
-                AI solutions that are not only efficient but also eco-friendly.
-                Our commitment to sustainability ensures that our AI systems
-                contribute to reducing environmental impact and driving global
-                change.
+                AI solutions that are not only efficient but also{" "}
+                <strong className="text-green-700">eco-friendly</strong>. Our
+                commitment to sustainability ensures that our AI systems
+                contribute to{" "}
+                <strong className="text-green-700">
+                  reducing environmental impact
+                </strong>{" "}
+                and driving global change.{" "}
               </p>
             </div>
           </div>

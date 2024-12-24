@@ -9,7 +9,7 @@ const services = [
     description:
       "Revolutionizing education with AI-driven tools to enhance personalized learning, and improve outcomes.",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
-    link: "/educational-innovations",
+    link: "/service/educational-innovations",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const services = [
     description:
       "Revolutionizing customer service through AI-powered solutions that enhance engagement, support",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
-    link: "/customer-experience",
+    link: "/service/customer-experience",
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const services = [
     description:
       "AI-powered robotic systems that combine vision and perception for smarter automation.",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
-    link: "/robotic-automation",
+    link: "/service/robotic-automation",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const services = [
     description:
       "AI-driven solutions to estimate, reduce, and optimize your organization's carbon footprint.",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
-    link: "/carbon-footprint",
+    link: "/service/carbon-footprint",
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const services = [
     description:
       "AI-driven chatbots that generate personalized responses, automate communication, and enhance customer experiences.",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
-    link: "/generative-ai-chatbot",
+    link: "/service/generative-ai-chatbot",
   },
   {
     id: 6,
@@ -49,7 +49,7 @@ const services = [
     description:
       "AI-driven industrial automation solutions that enhance efficiency, accuracy, and productivity.",
     icon: <ArrowRight className="w-8 h-8 text-green-400" />,
-    link: "/industrial-automation",
+    link: "/service/industrial-automation",
   },
 ];
 

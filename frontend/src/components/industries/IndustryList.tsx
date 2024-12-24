@@ -5,7 +5,7 @@ import infrastructure from "../img/infrastructure.webp";
 import Steel from "../img/steel.jpg";
 import Automobile from "../img/automobile.png";
 import Power from "../img/power.jpg";
-import Transportation from "../img/infrastructure.webp";
+import Transportation from "../img/Transportations.png";
 import Mining from "../img/mining.jpeg";
 import Textile from "../img/textile.webp";
 import CementImage from "../img/cement.png";

@@ -20,7 +20,7 @@ const industries = [
       "Use of AI and automation in the production lines.",
       "Sustainable practices in steel recycling.",
     ],
-    path: "/steel",
+    path: "/industry/steel",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const industries = [
       "Predictive maintenance systems.",
       "Energy-efficient building management.",
     ],
-    path: "/infrastructure",
+    path: "/industry/infrastructure",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const industries = [
       "Manufacturing optimization.",
       "Quality control automation.",
     ],
-    path: "/automobile",
+    path: "/industry/automobile",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const industries = [
       "Carbon capture and storage.",
       "Smart grids and AI optimization.",
     ],
-    path: "/power",
+    path: "/industry/power",
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ const industries = [
       "Route optimization.",
       "Predictive maintenance.",
     ],
-    path: "/transportation",
+    path: "/industry/transportation",
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ const industries = [
       "AI for exploration.",
       "Sustainable mining practices.",
     ],
-    path: "/mining",
+    path: "/industry/mining",
   },
   {
     id: 7,
@@ -86,7 +86,7 @@ const industries = [
       "Real-Time AI Detection",
       "Tailored Insights",
     ],
-    path: "/textile",
+    path: "/industry/textile",
   },
   {
     id: 8,
@@ -97,7 +97,7 @@ const industries = [
       "Concrete Quality Analysis",
       "Energy-Efficient Cement Management",
     ],
-    path: "/cement",
+    path: "/industry/cement",
   },
 ];
 

@@ -30,6 +30,7 @@ import Product from "./components/product/Product";
 import ProductCCTV from "./components/product/CCTV";
 import ProductHealth from "./components/product/Health";
 import ProductSurface from "./components/product/Surface";
+import chatbox from "./components/home/chatbox";
 // import ChatbotInterface from "./components/chatbot/ChatbotInterface";
 // import ChatboxRedirect from "./components/chatbot/ChatboxRedirect";
 
@@ -116,6 +117,7 @@ function App() {
         </main>
         <Footer />
 {/*         <ChatboxRedirect /> */}
+        <chatbox/>
       </div>
     </Router>
   );

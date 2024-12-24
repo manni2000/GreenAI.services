@@ -26,6 +26,7 @@ const Hero: React.FC<HeroProps> = ({ servicesRef }) => {
   }, []);
 
   const handleRedirectToSignup = () => {
+    window.scrollTo(0, 0);
     navigate("/signup");
   };
 

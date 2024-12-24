@@ -39,7 +39,7 @@ const Education = () => {
               subheading="Essentials of Gen AI and ML"
               description={
                 <>
-                  <h2>Online Classes Start From 15 Nov 2024.</h2>
+                  <h2>Online Classes Start From 15 March 2025.</h2>
                   <h3>
                     Are you a 3rd or final year undergraduate student looking to
                     gain a significant edge in the job market?
@@ -47,14 +47,14 @@ const Education = () => {
                 </>
               }
               organisedByImgs={[GreenAILogo, JadavpurLogo]}
-              link="/gen-ai-ml"
+              link="/education/gen-ai-ml"
             />
             <EducationCard
               title="2-days crash course on Industry 4.0 AI meets IoT"
               subheading="Industry 4.0 AI meets IoT"
               description="Join our 2-days crash course to learn about the intersection of AI and IoT in Industry 4.0."
               organisedByImgs={[GreenAILogo, JadavpurLogo]}
-              link="/industry-4-ai-iot"
+              link="/education/industry-4-ai-iot"
             />
           </div>
         </div>

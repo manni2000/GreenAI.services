@@ -16,7 +16,7 @@ const Product = () => {
     <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">OUR PRODUCTS</h2>
+          <h2 className="text-4xl font-bold text-gray-900">OUT PRODUCTS</h2>
           <p className="text-lg text-gray-600 mt-4">
             Discover our range of innovative products designed to enhance your
             business.
@@ -45,7 +45,7 @@ const Product = () => {
                 counting, and security management.
               </p>
               <button
-                onClick={() => handleNavigate("/product-cctv")}
+                onClick={() => handleNavigate("/product/cctv")}
                 className="mt-4 px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors"
               >
                 Learn More
@@ -74,7 +74,7 @@ const Product = () => {
                 operation of conveyor systems in industrial environments.
               </p>
               <button
-                onClick={() => handleNavigate("/product-health")}
+                onClick={() => handleNavigate("/product/health")}
                 className="mt-4 px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors"
               >
                 Learn More
@@ -104,7 +104,7 @@ const Product = () => {
                 quality assurance.
               </p>
               <button
-                onClick={() => handleNavigate("/product-surface")}
+                onClick={() => handleNavigate("/product/surface")}
                 className="mt-4 px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors"
               >
                 Learn More

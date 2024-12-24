@@ -26,11 +26,12 @@ import CementPage from "./components/industries/CementPage";
 import Industry4IoTPage from "./components/education/Industry4IoTPage";
 import GenAIMLPage from "./components/education/GenAIMLPage";
 import Auth from "./pages/Auth";
-import Chatbox from "./components/home/chatbox";
 import Product from "./components/product/Product";
 import ProductCCTV from "./components/product/CCTV";
 import ProductHealth from "./components/product/Health";
 import ProductSurface from "./components/product/Surface";
+import ChatbotInterface from "./components/chatbot/ChatbotInterface";
+import ChatboxRedirect from "./components/chatbot/ChatboxRedirect";
 
 function App() {
   const [user, setUser] = useState<{ name: string } | null>(null);
@@ -56,38 +57,50 @@ function App() {
                 </>
               }
             />
-            <Route path="/steel" element={<SteelPage />} />
-            <Route path="/infrastructure" element={<InfrastructurePage />} />
-            <Route path="/automobile" element={<AutomobilePage />} />
-            <Route path="/power" element={<PowerPage />} />
-            <Route path="/transportation" element={<TransportationPage />} />
-            <Route path="/mining" element={<MiningPage />} />
-            <Route path="/cement" element={<CementPage />} />
+            <Route path="/industry/steel" element={<SteelPage />} />
+            <Route
+              path="/industry/infrastructure"
+              element={<InfrastructurePage />}
+            />
+            <Route path="/industry/automobile" element={<AutomobilePage />} />
+            <Route path="/industry/power" element={<PowerPage />} />
+            <Route
+              path="/industry/transportation"
+              element={<TransportationPage />}
+            />
+            <Route path="/industry/mining" element={<MiningPage />} />
+            <Route path="/industry/cement" element={<CementPage />} />
             <Route path="/product" element={<Product />} />
             <Route
-              path="/generative-ai-chatbot"
+              path="/service/generative-ai-chatbot"
               element={<GenerativeAIChatbotPage />}
             />
             <Route
-              path="/industrial-automation"
+              path="/service/industrial-automation"
               element={<IndustrialAutomationPage />}
             />
             <Route
-              path="/educational-innovations"
+              path="/service/educational-innovations"
               element={<EducationalInnovationsPage />}
             />
             <Route
-              path="/customer-experience"
+              path="/service/customer-experience"
               element={<CustomerExperiencePage />}
             />
             <Route
-              path="/robotic-automation"
+              path="/service/robotic-automation"
               element={<RoboticAutomationPage />}
             />
-            <Route path="/gen-ai-ml" element={<GenAIMLPage />} />
-            <Route path="/industry-4-ai-iot" element={<Industry4IoTPage />} />
-            <Route path="/textile" element={<TextilePage />} />
-            <Route path="/carbon-footprint" element={<CarbonFootprintPage />} />
+            <Route path="/education/gen-ai-ml" element={<GenAIMLPage />} />
+            <Route
+              path="/education/industry-4-ai-iot"
+              element={<Industry4IoTPage />}
+            />
+            <Route path="/industry/textile" element={<TextilePage />} />
+            <Route
+              path="/service/carbon-footprint"
+              element={<CarbonFootprintPage />}
+            />
             <Route path="/signin" element={<Auth setUser={setUser} />} />
             <Route path="/signup" element={<Auth setUser={setUser} />} />
             <Route path="/services" element={<Services />} />
@@ -95,13 +108,14 @@ function App() {
             <Route path="/why-greenai" element={<WhyChoose />} />
             <Route path="/education" element={<Education />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/product-cctv" element={<ProductCCTV />} />{" "}
-            <Route path="/product-health" element={<ProductHealth />} />{" "}
-            <Route path="/product-surface" element={<ProductSurface />} />{" "}
+            <Route path="/product/cctv" element={<ProductCCTV />} />
+            <Route path="/product/health" element={<ProductHealth />} />
+            <Route path="/product/surface" element={<ProductSurface />} />
+            <Route path="/greenai-legalGPT" element={<ChatbotInterface />} />
           </Routes>
         </main>
         <Footer />
-        <Chatbox />
+        <ChatboxRedirect />
       </div>
     </Router>
   );

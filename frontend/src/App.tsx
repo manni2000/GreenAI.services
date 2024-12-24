@@ -30,8 +30,8 @@ import Product from "./components/product/Product";
 import ProductCCTV from "./components/product/CCTV";
 import ProductHealth from "./components/product/Health";
 import ProductSurface from "./components/product/Surface";
-import ChatbotInterface from "./components/chatbot/ChatbotInterface";
-import ChatboxRedirect from "./components/chatbot/ChatboxRedirect";
+// import ChatbotInterface from "./components/chatbot/ChatbotInterface";
+// import ChatboxRedirect from "./components/chatbot/ChatboxRedirect";
 
 function App() {
   const [user, setUser] = useState<{ name: string } | null>(null);
@@ -111,11 +111,11 @@ function App() {
             <Route path="/product/cctv" element={<ProductCCTV />} />
             <Route path="/product/health" element={<ProductHealth />} />
             <Route path="/product/surface" element={<ProductSurface />} />
-            <Route path="/greenai-legalGPT" element={<ChatbotInterface />} />
+{/*             <Route path="/greenai-legalGPT" element={<ChatbotInterface />} /> */}
           </Routes>
         </main>
         <Footer />
-        <ChatboxRedirect />
+{/*         <ChatboxRedirect /> */}
       </div>
     </Router>
   );

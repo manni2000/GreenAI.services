@@ -31,6 +31,7 @@ const Hero: React.FC<HeroProps> = ({ servicesRef }) => {
   };
 
   const handleGetStartedClick = () => {
+    window.scrollTo(900, 900);
     if (servicesRef.current) {
       servicesRef.current.scrollIntoView({ behavior: "smooth" });
     }
